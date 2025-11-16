@@ -1,0 +1,1489 @@
+@base = http://localhost:3000/
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzYzMjcyMzA4LCJleHAiOjE3NjMzNTg3MDh9.Bu-PHDQK5HFB-03qRHw5_vnHGWfhWYZP0r8PaLL6LY0
+
+
+###
+// get all users as admin
+GET {{base}}users
+content-type: application/json
+Authorization: Bearer {{token}}
+
+
+###
+// register as admin
+PATCH {{base}}register
+content-type: application/json
+
+{
+  "username": "admin",
+  "email": "admin@gmail.com",
+  "password": "admin111",
+  "confPass": "admin111"
+}
+
+
+###
+// register as users
+POST {{base}}register
+content-type: application/json
+
+{
+  "username": "kingmrx",
+  "email": "kingmrx@gmail.com",
+  "password": "kingmrx111",
+  "confPass": "kingmrx111"
+}
+
+
+###
+// login as users
+POST {{base}}login
+content-type: application/json
+
+{
+  "userOREmail": "kingmrx@gmail.com",
+  "password": "kingmrx111"
+}
+
+
+###
+// login as admin
+POST {{base}}login
+content-type: application/json
+
+{
+  "userOREmail": "admin@gmail.com",
+  "password": "admin111"
+}
+
+
+###
+// get profile
+GET {{base}}Me
+content-type: application/json
+Authorization: Bearer {{token}}
+
+
+###
+// get all anime
+GET {{base}}anime
+
+
+###
+// get anime by slug
+GET {{base}}anime/one-piece
+
+
+###
+// create anime
+POST {{base}}anime
+Content-Type:  application/json
+Authorization: Bearer {{token}}
+
+{
+    "judul": "Maou Gakuin no Futekigousha: Shijou Saikyou no Maou no Shiso, Tensei shite Shison-tachi no Gakkou e Kayou",
+    "genre": ["Action", "Adventure", "Fantasy", "Mythology", "Reincarnation", "School"],
+    "kualitas": "BD",
+    "status": "Selesai Tayang",
+    "adaptasi": "Novel Ringan",
+    "negara": "Jepang",
+    "studio": "SILVER LINK.",
+    "total_eps": 13,
+    "tipe": "TV",
+    "musim": "Summer 2020",
+    "rating": "R - 17+ (kekerasan & kata-kata kotor)",
+    "deskripsi": "The Misfit of Demon King Academy, 魔王学院の不適合者 ～史上最強の魔王の始祖、転生して子孫たちの学校へ通う～, The Misfit of Demon King Academy: History's Strongest Demon King Reincarnates and Goes to School with His Descendants\n\nDi masa lalu yang jauh, perang antara manusia dan iblis menyebabkan kekacauan dan pertumpahan darah yang meluas. Untuk mengakhiri konflik yang tampaknya tak berujung ini, Raja Iblis Anos Voldigoad dengan rela mengorbankan hidupnya, berharap untuk dilahirkan kembali di masa depan yang damai. Sebagai persiapan untuk kembalinya raja mereka, ras iblis menciptakan Akademi Raja Iblis, sebuah institusi elit yang bertugas menentukan identitas Anos saat dia bangkit kembali.\n\nDia bereinkarnasi dua milenium kemudian, tetapi yang mengejutkan, dia segera mengetahui bahwa tingkat sihir di dunia telah berkurang secara drastis selama ketidakhadirannya. Terlebih lagi, ketika dia mendaftar di akademi untuk merebut kembali gelarnya yang sah, dia mengetahui bahwa iblis mengingatnya secara berbeda.\n\nKepribadiannya, perbuatannya, dan bahkan warisannya semuanya dipalsukan—bertopeng di bawah nama seorang penipu. 'Kurangnya' pengetahuan umum ini membuatnya menjadi outlier akademi — ketidaksesuaian yang belum pernah terlihat dalam sejarah. Terlepas dari kekurangan ini, Anos tetap tidak terpengaruh.\n\nSaat dia berusaha mengungkap orang-orang yang mengubah masa lalunya yang gemilang, dia melakukannya sendiri untuk membuat keturunannya menyadari bahwa penguasa mereka akhirnya telah kembali. [Ditulis oleh MAL Tulis Ulang]\n\nCatatan: Sinopsis diterjemahkan secara otomatis oleh Google Translate.",
+    "skor": 7.38,
+    "peminat": 684803,
+    "kredit": "kingmrx",
+    "thumbnail": "https://trzaxrdmotoeoskpfgzn.supabase.co/storage/v1/object/sign/anime/Maou%20Gakuin/thumbnail/108573l.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV83ZmEzMGRjMy0xYTljLTQxMjAtYWFlNy1iNGQwNjQzMzc3NjEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhbmltZS9NYW91IEdha3Vpbi90aHVtYm5haWwvMTA4NTczbC5qcGciLCJpYXQiOjE3NjI5NTYwMzYsImV4cCI6MTc5NDQ5MjAzNn0.E1FmChMPhojen6mxNFEmGvp_DKimfmSz_nQq6pktCvk",
+    "durasi": "23 menit per episode"
+}
+
+
+###
+// update anime
+PATCH {{base}}anime/4
+Content-Type:  application/json
+Authorization: Bearer {{token}}
+
+{
+    "judul": "Tensei shitara Slime Datta Ken ini sudah di update",
+    "genre": ["Action", "Adventure", "Fantasy"],
+    "kualitas": "BD",
+    "status": "Selesai Tayang",
+    "adaptasi": "Manga",
+    "negara": "Jepang",
+    "studio": "8Bit",
+    "total_eps": 24,
+    "tipe": "TV",
+    "musim": "Fall 2018",
+    "rating": "PG-13 - Remaja berusia 13 tahun ke atas",
+    "deskripsi": "That Time I Got Reincarnated as a Slime, 転生したらスライムだった件, TenSura\n\nSatoru Mikami yang berusia tiga puluh tujuh tahun adalah tipikal pekerja korporat, yang sangat puas dengan gaya hidupnya yang monoton di Tokyo, selain gagal mendapatkan pacar sekali pun sepanjang hidupnya. Di tengah pertemuan biasa dengan rekannya, dia menjadi korban penyerang acak di jalanan dan ditikam. Namun, saat ia menyerah pada luka-lukanya, sebuah suara aneh bergema di benaknya, dan mengucapkan serangkaian perintah yang tidak dapat dipahami oleh orang yang sekarat itu.\n\nKetika Satoru sadar kembali, ia menemukan bahwa ia telah bereinkarnasi sebagai seorang goop slime di alam asing. Dengan melakukan hal itu, dia memperoleh keterampilan baru—terutama, kekuatan untuk melahap apa pun dan meniru penampilan serta kemampuannya. Dia kemudian menemukan monster tingkat Bencana yang tersegel 'Naga Badai' Veldora yang telah disegel selama 300 tahun terakhir karena menghancurkan sebuah kota menjadi abu. Bersimpati dengan kesulitannya, Satoru berteman dengannya, berjanji untuk membantu menghancurkan segelnya. Sebagai imbalannya, Veldora menganugerahkan kepadanya nama Rimuru Tempest untuk memberinya perlindungan ilahi.\n\nSekarang, terbebas dari kehidupan masa lalunya yang biasa-biasa saja, Rimuru memulai perjalanan baru dengan tujuan yang jelas. Saat ia mulai terbiasa dengan fisik barunya, kejenakaannya menyebar ke seluruh dunia, secara bertahap mengubah nasibnya.\n\n[Ditulis oleh MAL Rewrite]",
+    "skor": 8.14,
+    "peminat": 1362751,
+    "kredit": "kingmrx",
+    "thumbnail": "https://trzaxrdmotoeoskpfgzn.supabase.co/storage/v1/object/sign/anime/tensei-shittara-datta-ken/thumbnail/123309l.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV83ZmEzMGRjMy0xYTljLTQxMjAtYWFlNy1iNGQwNjQzMzc3NjEiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJhbmltZS90ZW5zZWktc2hpdHRhcmEtZGF0dGEta2VuL3RodW1ibmFpbC8xMjMzMDlsLmpwZyIsImlhdCI6MTc2MjE4Mzg0NCwiZXhwIjoxNzkzNzE5ODQ0fQ.pzF0rYHU6lcerPWO6SkgynGjIrSCg6iSjH2JaPWxE04",
+    "durasi": "23 menit per episode"
+}
+
+
+###
+// delete anime
+DELETE {{base}}anime/4
+Content-Type:  application/json
+Authorization: Bearer {{token}}
+
+
+###
+// create all episode
+// anime tensei shittara slime datta ken
+POST {{base}}episodeBatch/3
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "title": "Serangan Dewa Milim Iblis",
+    "episode": 16,
+    "videoURL": {
+      "720p": "https://kurisu.my.id/kdrive/kJNO4vmQXgk/Kuramanime-TSSDK_BD-16-720p-MangaNeko.mp4?lud=1743509993&pid=75&sid=2422&cce=1",
+      "480p": "https://kurisu.my.id/kdrive/4EfpykBe3RB/Kuramanime-TSSDK_BD-16-480p-MangaNeko.mp4?lud=1743509993&pid=75&sid=2421&cce=1",
+      "360p": "https://kurisu.my.id/kdrive/ZHmxpkW7k0T/Kuramanime-TSSDK_BD-16-360p-MangaNeko.mp4?lud=1743509993&pid=75&sid=2420&cce=1"
+    }
+  },
+  {
+    "title": "Pertemuan",
+    "episodeNumber": 17,
+    "videoURL": {
+      "720p": "https://kanae.my.id/kdrive/3DgyD2qCaad/Kuramanime-TSSDK_BD-17-720p-MangaNeko.mp4?lud=1743509993&pid=76&sid=2427&cce=1",
+      "480p": "https://kanae.my.id/kdrive/8OB7CN8qyt0/Kuramanime-TSSDK_BD-17-480p-MangaNeko.mp4?lud=1743509993&pid=76&sid=2426&cce=1",
+      "360p": "https://kanae.my.id/kdrive/5hS7J4ByFKC/Kuramanime-TSSDK_BD-17-360p-MangaNeko.mp4?lud=1743509993&pid=76&sid=2425&cce=1"
+    }
+  },
+  {
+    "title": "Iblis Merayap Lebih Dekat",
+    "episodeNumber": 18,
+    "videoURL": {
+      "720p": "https://asuna.my.id/kdrive/F2p8rqoTNE7/Kuramanime-TSSDK_BD-18-720p-MangaNeko.mp4?lud=1743509994&pid=77&sid=2432&cce=1",
+      "480p": "https://asuna.my.id/kdrive/vfk3NQHU1Ro/Kuramanime-TSSDK_BD-18-480p-MangaNeko.mp4?lud=1743509993&pid=77&sid=2431&cce=1",
+      "360p": "https://asuna.my.id/kdrive/VEDlLG8jW6r/Kuramanime-TSSDK_BD-18-360p-MangaNeko.mp4?lud=1743509993&pid=77&sid=2430&cce=1"
+    }
+  },
+  {
+    "title": "Charybdis",
+    "episodeNumber": 19,
+    "videoURL": {
+      "720p": "https://tiera.my.id/kdrive/9CIyMPwDUfE/Kuramanime-TSSDK_BD-19-720p-MangaNeko.mp4?lud=1743509994&pid=78&sid=2437&cce=1",
+      "480p": "https://tiera.my.id/kdrive/cQ2VEHTwxsU/Kuramanime-TSSDK_BD-19-480p-MangaNeko.mp4?lud=1743509994&pid=78&sid=2436&cce=1",
+      "360p": "https://tiera.my.id/kdrive/BUk6zP5ak6S/Kuramanime-TSSDK_BD-19-360p-MangaNeko.mp4?lud=1743509994&pid=78&sid=2435&cce=1"
+    }
+  },
+  {
+    "title": "Yuuki Kagurazaka",
+    "episodeNumber": 20,
+    "videoURL": {
+      "720p": "https://sinon.my.id/kdrive/pqtAQ3VxKBE/Kuramanime-TSSDK_BD-20-720p-MangaNeko.mp4?lud=1743509994&pid=79&sid=2442&cce=1",
+      "480p": "https://sinon.my.id/kdrive/3AoFbwH9V2a/Kuramanime-TSSDK_BD-20-480p-MangaNeko.mp4?lud=1743509994&pid=79&sid=2441&cce=1",
+      "360p": "https://sinon.my.id/kdrive/WqFPlRnEclb/Kuramanime-TSSDK_BD-20-360p-MangaNeko.mp4?lud=1743509994&pid=79&sid=2440&cce=1"
+    }
+  },
+  {
+    "title": " Siswa Shizue",
+    "episodeNumber": 21,
+    "videoURL": {
+      "720p": "https://kitasan.my.id/kdrive/WOY3wlaye7S/Kuramanime-TSSDK_BD-21-720p-MangaNeko.mp4?lud=1743509994&pid=80&sid=2447&cce=1",
+      "480p": "https://kitasan.my.id/kdrive/sVT58kCw2s5/Kuramanime-TSSDK_BD-21-480p-MangaNeko.mp4?lud=1743509994&pid=80&sid=2446&cce=1",
+      "360p": "https://kitasan.my.id/kdrive/JKHiNaG1yJr/Kuramanime-TSSDK_BD-21-360p-MangaNeko.mp4?lud=1743509994&pid=80&sid=2445&cce=1"
+    }
+  },
+  {
+    "title": "Menaklukan Labirin",
+    "episodeNumber": 22,
+    "videoURL": {
+      "720p": "https://yae.my.id/kdrive/tiShZjbYAjs/Kuramanime-TSSDK_BD-22-720p-MangaNeko.mp4?lud=1743509994&pid=81&sid=2452&cce=1",
+      "480p": "https://yae.my.id/kdrive/lasCv5Prhp1/Kuramanime-TSSDK_BD-22-480p-MangaNeko.mp4?lud=1743509994&pid=81&sid=2451&cce=1",
+      "360p": "https://yae.my.id/kdrive/DaSuydECsPZ/Kuramanime-TSSDK_BD-22-360p-MangaNeko.mp4?lud=1743509994&pid=81&sid=2450&cce=1"
+    }
+  },
+  {
+    "title": "Jiwa Yang Diselamatkan",
+    "episodeNumber": 23,
+    "videoURL": {
+      "720p": "https://makima.my.id/kdrive/CzKp9qEAQOg/Kuramanime-TSSDK_BD-23-720p-MangaNeko.mp4?lud=1743509994&pid=82&sid=2457&cce=1",
+      "480p": "https://makima.my.id/kdrive/vwHo15IMa0s/Kuramanime-TSSDK_BD-23-480p-MangaNeko.mp4?lud=1743509994&pid=82&sid=2456&cce=1",
+      "360p": "https://makima.my.id/kdrive/5CcFoc0Uks1/Kuramanime-TSSDK_BD-23-360p-MangaNeko.mp4?lud=1743509994&pid=82&sid=2455&cce=1"
+    }
+  },
+  {
+    "title": "Hitam dan Topeng",
+    "episodeNumber": 24,
+    "videoURL": {
+      "720p": "https://chinatsu.my.id/kdrive/f8P3O6vcLI1/Kuramanime-TSSDK_BD-24_END-720p-MangaNeko.mp4?lud=1743509994&pid=83&sid=2462&cce=1",
+      "480p": "https://chinatsu.my.id/kdrive/ywHQSl3UPMQ/Kuramanime-TSSDK_BD-24_END-480p-MangaNeko.mp4?lud=1743509994&pid=83&sid=2461&cce=1",
+      "360p": "https://chinatsu.my.id/kdrive/bJ8EqKHwT6z/Kuramanime-TSSDK_BD-24_END-360p-MangaNeko.mp4?lud=1743509994&pid=83&sid=2460&cce=1"
+    }
+  }
+]
+
+
+###
+// create all episode
+// anime One Piece 1066 - 1076
+POST {{base}}episodeBatch/85
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "title": "Inilah Babak Utamanya! Teknik Gelombang Kejut dan Magnetis yang Dahsyat",
+    "episodeNumber": 1066,
+    "videoURL": {
+      "720p": "https://juliet.my.id/kdrive/R9zU2AsGv7L/Kuramanime-OP-1066-720p-Oploverz.mp4?lud=1743503263&pid=15132&sid=77887&cce=1",
+      "480p": "https://juliet.my.id/kdrive/4IeDj7HS8YD/Kuramanime-OP-1066-480p-Oploverz.mp4?lud=1743503263&pid=15132&sid=77886&cce=1",
+      "360p": "https://juliet.my.id/kdrive/ifYGYUmkgvX/Kuramanime-OP-1066-360p-Oploverz.mp4?lud=1743503263&pid=15132&sid=77885&cce=1"
+    }
+  },
+  {
+    "title": "Menuju Era Baru! Selesai! Determinasi Para Bocah Bengal",
+    "episodeNumber": 1067,
+    "videoURL": {
+      "720p": "https://waguri.my.id/kdrive/e1jE020yPn5/Kuramanime-OP-1067-720p-Oploverz.mp4?lud=1743503280&pid=15262&sid=78544&cce=1",
+      "480p": "https://waguri.my.id/kdrive/192AriCpeeU/Kuramanime-OP-1067-480p-Oploverz.mp4?lud=1743503280&pid=15262&sid=78543&cce=1",
+      "360p": "https://waguri.my.id/kdrive/pBUSWVNPMzl/Kuramanime-OP-1067-360p-Oploverz.mp4?lud=1743503280&pid=15262&sid=78542&cce=1"
+    }
+  },
+  {
+    "title": "Gema Putri Bulan! Babak Terakhir Negeri Wano",
+    "episodeNumber": 1068,
+    "videoURL": {
+      "720p": "https://chizuru.my.id/kdrive/fpeiNjrHlOd/Kuramanime-OP-1068-720p-Oploverz.mp4?lud=1743503306&pid=15395&sid=79251&cce=1",
+      "480p": "https://chizuru.my.id/kdrive/JY1nSwXYKCv/Kuramanime-OP-1068-480p-Oploverz.mp4?lud=1743503306&pid=15395&sid=79250&cce=1",
+      "360p": "https://chizuru.my.id/kdrive/wfUfZTjzdi2/Kuramanime-OP-1068-360p-Oploverz.mp4?lud=1743503306&pid=15395&sid=79249&cce=1"
+    }
+  },
+  {
+    "title": "Hanya Ada Satu Pemenang, Luffy dan Kaido",
+    "episodeNumber": 1069,
+    "videoURL": {
+      "720p": "https://ruka.my.id/kdrive/Jc3jAK4BdH3/Kuramanime-OP-1069-720p-Oploverz.mp4?lud=1743503319&pid=15516&sid=79848&cce=1",
+      "480p": "https://ruka.my.id/kdrive/kn5AMcb4fYl/Kuramanime-OP-1069-480p-Oploverz.mp4?lud=1743503319&pid=15516&sid=79847&cce=1",
+      "360p": "https://ruka.my.id/kdrive/JzOkf9YM68c/Kuramanime-OP-1069-360p-Oploverz.mp4?lud=1743503319&pid=15516&sid=79846&cce=1"
+    }
+  },
+  {
+    "title": "Luffy Kalah? Determinasi Mereka yang Tertinggal",
+    "episodeNumber": 1070,
+    "videoURL": {
+      "720p": "https://euphy.my.id/kdrive/KyG43mQHEVU/Kuramanime-OP-1070-720p-Oploverz.mp4?lud=1743503355&pid=15791&sid=81221&cce=1",
+      "480p": "https://euphy.my.id/kdrive/Xc0ySy1SMYW/Kuramanime-OP-1070-480p-Oploverz.mp4?lud=1743503355&pid=15791&sid=81220&cce=1",
+      "360p": "https://euphy.my.id/kdrive/Tdd99KKrQxO/Kuramanime-OP-1070-360p-Oploverz.mp4?lud=1743503355&pid=15791&sid=81219&cce=1"
+    }
+  },
+  {
+    "title": "Puncak Kekuatan Luffy - Tercapai! Gear Fifth",
+    "episodeNumber": 1071,
+    "videoURL": {
+      "720p": "https://megumin.my.id/kdrive/2uzzDThUjGI/Kuramanime-OP-1071-720p-Oploverz.mp4?lud=1743503391&pid=16069&sid=82622&cce=1",
+      "480p": "https://megumin.my.id/kdrive/HqoLP4LRyVO/Kuramanime-OP-1071-480p-Oploverz.mp4?lud=1743503391&pid=16069&sid=82621&cce=1",
+      "360p": "https://megumin.my.id/kdrive/wkctIy2NVmo/Kuramanime-OP-1071-360p-Oploverz.mp4?lud=1743503391&pid=16069&sid=82620&cce=1"
+    }
+  },
+  {
+    "title": "Kekuatan Konyol! Putaran Penuh Gear Fifth!",
+    "episodeNumber": 1072,
+    "videoURL": {
+      "720p": "https://orihime.my.id/kdrive/PFTT0TurC5z/Kuramanime-OP-1072-720p-Oploverz.mp4?lud=1743503428&pid=16211&sid=83345&cce=1",
+      "480p": "https://orihime.my.id/kdrive/J4LiNgBYBiy/Kuramanime-OP-1072-480p-Oploverz.mp4?lud=1743503427&pid=16211&sid=83344&cce=1",
+      "360p": "https://orihime.my.id/kdrive/exFaoxurtgt/Kuramanime-OP-1072-360p-Oploverz.mp4?lud=1743503427&pid=16211&sid=83343&cce=1"
+    }
+  },
+  {
+    "title": "Tak Ada Jalan Keluar! Pemandangan Neraka di Onigashima",
+    "episodeNumber": 1073,
+    "videoURL": {
+      "720p": "https://raphtalia.my.id/kdrive/i8VO0lyVgbz/Kuramanime-OP-1073-720p-Oploverz.mp4?lud=1743503449&pid=16349&sid=84038&cce=1",
+      "480p": "https://raphtalia.my.id/kdrive/mzrFdUC9oFf/Kuramanime-OP-1073-480p-Oploverz.mp4?lud=1743503449&pid=16349&sid=84037&cce=1",
+      "360p": "https://raphtalia.my.id/kdrive/tdE0Gj0yUyn/Kuramanime-OP-1073-360p-Oploverz.mp4?lud=1743503449&pid=16349&sid=84036&cce=1"
+    }
+  },
+  {
+    "title": "Aku Memercayai Momo, Teknik Kuat Terakhir Luffy!",
+    "episodeNumber": 1074,
+    "videoURL": {
+      "720p": "https://ultimatia.my.id/kdrive/OQb63UXH05g/Kuramanime-OP-1074-720p-Oploverz.mp4?lud=1743503548&pid=16712&sid=86118&cce=1",
+      "480p": "https://ultimatia.my.id/kdrive/aiXb0b7jWCw/Kuramanime-OP-1074-480p-Oploverz.mp4?lud=1743503548&pid=16712&sid=86117&cce=1",
+      "360p": "https://ultimatia.my.id/kdrive/Q4KcbfuzXVy/Kuramanime-OP-1074-360p-Oploverz.mp4?lud=1743503548&pid=16712&sid=86116&cce=1"
+    }
+  },
+  {
+    "title": "Doa Senilai 20 Tahun! Rebut Kembali Negeri Wano",
+    "episodeNumber": 1075,
+    "videoURL": {
+      "720p": "https://nobara.my.id/kdrive/b4lr13CGDNe/Kuramanime-OP-1075-720p-Oploverz.mp4?lud=1743503595&pid=16949&sid=87548&cce=1",
+      "480p": "https://nobara.my.id/kdrive/zw7UUiGWHjQ/Kuramanime-OP-1075-480p-Oploverz.mp4?lud=1743503595&pid=16949&sid=87547&cce=1",
+      "360p": "https://nobara.my.id/kdrive/UZdZVjgLHjq/Kuramanime-OP-1075-360p-Oploverz.mp4?lud=1743503595&pid=16949&sid=87546&cce=1"
+    }
+  },
+  {
+    "title": "Dunia yang Luffy inginkan!",
+    "episodeNumber": 1076,
+    "videoURL": {
+      "720p": "https://anisphia.my.id/kdrive/lEGKohtVTfp/Kuramanime-OP-1076-720p-Oploverz.mp4?lud=1743503635&pid=17213&sid=89107&cce=1",
+      "480p": "https://anisphia.my.id/kdrive/qWVM0IY5wbh/Kuramanime-OP-1076-480p-Oploverz.mp4?lud=1743503635&pid=17213&sid=89106&cce=1",
+      "360p": "https://anisphia.my.id/kdrive/KkopppQl5ba/Kuramanime-OP-1076-360p-Oploverz.mp4?lud=1743503635&pid=17213&sid=89105&cce=1"
+    }
+  }
+]
+
+
+###
+// create all episode
+// anime One Piece 1077 - 1087
+POST {{base}}episodeBatch/85
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "title": "Tirai Telah Turun! Pemenangnya, Luffy si Topi Jerami",
+    "episodeNumber": 1077,
+    "videoURL": {
+      "720p": "https://leshea.my.id/kdrive/gJvHwA9g4UI/Kuramanime-OP-1077-720p-Oploverz.mp4?lud=1743503712&pid=17583&sid=91099&cce=1",
+      "480p": "https://leshea.my.id/kdrive/kUsBQL1o4Au/Kuramanime-OP-1077-480p-Oploverz.mp4?lud=1743503712&pid=17583&sid=91098&cce=1",
+      "360p": "https://leshea.my.id/kdrive/mDJNRhKHHDN/Kuramanime-OP-1077-360p-Oploverz.mp4?lud=1743503712&pid=17583&sid=91097&cce=1"
+    }
+  },
+  {
+    "title": "Dia Kembali! Shogun Negeri Wano, Kozuki Momonosuke",
+    "episodeNumber": 1078,
+    "videoURL": {
+      "720p": "https://frieren.my.id/kdrive/qHwBtB1J3Tj/Kuramanime-OP-1078-720p-Oploverz.mp4?lud=1743503750&pid=17791&sid=92124&cce=1",
+      "480p": "https://frieren.my.id/kdrive/fLMsuF5TVRw/Kuramanime-OP-1078-480p-Oploverz.mp4?lud=1743503750&pid=17791&sid=92123&cce=1",
+      "360p": "https://frieren.my.id/kdrive/5vPH24KmgXg/Kuramanime-OP-1078-360p-Oploverz.mp4?lud=1743503750&pid=17791&sid=92122&cce=1"
+    }
+  },
+  {
+    "title": "Pagi Telah Tiba! Waktu Istirahat Luffy dan Yang Lain",
+    "episodeNumber": 1079,
+    "videoURL": {
+      "720p": "https://maki.my.id/kdrive/eNJqBnYFlA7/Kuramanime-OP-1079-720p-Oploverz.mp4?lud=1743503835&pid=18154&sid=93969&cce=1",
+      "480p": "https://maki.my.id/kdrive/3Rkhp4fyHvB/Kuramanime-OP-1079-480p-Oploverz.mp4?lud=1743503835&pid=18154&sid=93968&cce=1",
+      "360p": "https://maki.my.id/kdrive/3MoWjN2O0xz/Kuramanime-OP-1079-360p-Oploverz.mp4?lud=1743503835&pid=18154&sid=93967&cce=1"
+    }
+  },
+  {
+    "title": "Pesta Perayaan! Kaisar Lautan Baru",
+    "episodeNumber": 1080,
+    "videoURL": {
+      "720p": "https://asuna.my.id/kdrive/M4S2hTXARJU/Kuramanime-OP-1080-720p-Oploverz.mp4?lud=1743503871&pid=18359&sid=94993&cce=1",
+      "480p": "https://asuna.my.id/kdrive/jiYAIXWg0mx/Kuramanime-OP-1080-480p-Oploverz.mp4?lud=1743503871&pid=18359&sid=94992&cce=1",
+      "360p": "https://asuna.my.id/kdrive/Uc32frnFogq/Kuramanime-OP-1080-360p-Oploverz.mp4?lud=1743503871&pid=18359&sid=94991&cce=1"
+    }
+  },
+  {
+    "title": "Dunia Akan Terbakar! Serangan Seorang Laksamana Angkatan Laut",
+    "episodeNumber": 1081,
+    "videoURL": {
+      "720p": "https://iino.my.id/kdrive/hOn5oEPwLIZ/Kuramanime-OP-1081-720p-Oploverz.mp4?lud=1743503919&pid=18572&sid=96085&cce=1",
+      "480p": "https://iino.my.id/kdrive/dQSze4nYqji/Kuramanime-OP-1081-480p-Oploverz.mp4?lud=1743503919&pid=18572&sid=96084&cce=1",
+      "360p": "https://iino.my.id/kdrive/rcLcRemqtye/Kuramanime-OP-1081-360p-Oploverz.mp4?lud=1743503919&pid=18572&sid=96083&cce=1"
+    }
+  },
+  {
+    "title": "Kedatangan Era Baru! Kemarahan Imperial Akagami",
+    "episodeNumber": 1082,
+    "videoURL": {
+      "720p": "https://renako.my.id/kdrive/bnBY168a9rT/Kuramanime-OP-1082-720p-Oploverz.mp4?lud=1743503973&pid=18872&sid=97566&cce=1",
+      "480p": "https://renako.my.id/kdrive/L0OZkvRytYD/Kuramanime-OP-1082-480p-Oploverz.mp4?lud=1743503973&pid=18872&sid=97565&cce=1",
+      "360p": "https://renako.my.id/kdrive/W2fKWFvvaHT/Kuramanime-OP-1082-360p-Oploverz.mp4?lud=1743503973&pid=18872&sid=97564&cce=1"
+    }
+  },
+  {
+    "title": "Dunia yang Terus Bergerak! Organisasi Baru, Cross Guild",
+    "episodeNumber": 1083,
+    "videoURL": {
+      "720p": "https://villhaze.my.id/kdrive/r00nZNfxtIO/Kuramanime-OP-1083-720p-Oploverz.mp4?lud=1743504000&pid=19048&sid=98446&cce=1",
+      "480p": "https://villhaze.my.id/kdrive/RDJmXYHsrt5/Kuramanime-OP-1083-480p-Oploverz.mp4?lud=1743504000&pid=19048&sid=98445&cce=1",
+      "360p": "https://villhaze.my.id/kdrive/T5EmlUnwggx/Kuramanime-OP-1083-360p-Oploverz.mp4?lud=1743504000&pid=19048&sid=98444&cce=1"
+    }
+  },
+  {
+    "title": "Waktunya Berangkat! Negeri Wano dan Kru Topi Jerami",
+    "episodeNumber": 1084,
+    "videoURL": {
+      "720p": "https://asahi.my.id/kdrive/Nq5Em91Jsqa/Kuramanime-OP-1084-720p-Oploverz.mp4?lud=1743504035&pid=19179&sid=99101&cce=1",
+      "480p": "https://asahi.my.id/kdrive/AtCEJCtsiBA/Kuramanime-OP-1084-480p-Oploverz.mp4?lud=1743504035&pid=19179&sid=99100&cce=1",
+      "360p": "https://asahi.my.id/kdrive/tSH0AGWHHus/Kuramanime-OP-1084-360p-Oploverz.mp4?lud=1743504035&pid=19179&sid=99099&cce=1"
+    }
+  },
+  {
+    "title": "Tirai Terakhir! Sumpah Luffy dan Momonosuke",
+    "episodeNumber": 1085,
+    "videoURL": {
+      "720p": "https://euphy.my.id/kdrive/cuyqJDMlRNo/Kuramanime-OP-1085-720p-Oploverz.mp4?lud=1743504088&pid=19404&sid=100222&cce=1",
+      "480p": "https://euphy.my.id/kdrive/YYT07Ert1zL/Kuramanime-OP-1085-480p-Oploverz.mp4?lud=1743504088&pid=19404&sid=100221&cce=1",
+      "360p": "https://euphy.my.id/kdrive/ULXEek2rANY/Kuramanime-OP-1085-360p-Oploverz.mp4?lud=1743504088&pid=19404&sid=100220&cce=1"
+    }
+  },
+  {
+    "title": "Kaisar Lautan Baru! Buggy si Badut Genius",
+    "episodeNumber": 1086,
+    "videoURL": {
+      "720p": "https://lena.my.id/kdrive/mKJCbiOdHUB/Kuramanime-OP-1086-720p-Oploverz.mp4?lud=1743504116&pid=19548&sid=100939&cce=1",
+      "480p": "https://lena.my.id/kdrive/oFyHlaauDEZ/Kuramanime-OP-1086-480p-Oploverz.mp4?lud=1743504116&pid=19548&sid=100938&cce=1",
+      "360p": "https://lena.my.id/kdrive/kh2JTAug4fN/Kuramanime-OP-1086-360p-Oploverz.mp4?lud=1743504116&pid=19548&sid=100937&cce=1"
+    }
+  },
+  {
+    "title": "Perang Di Pulau Wanita! Kasus yang Melibatkan sang Pahwalan Koby",
+    "episodeNumber": 1087,
+    "videoURL": {
+      "720p": "https://riselia.my.id/kdrive/mDV8YkryQhE/Kuramanime-OP-1087-720p-Oploverz.mp4?lud=1743504155&pid=19762&sid=102162&cce=1",
+      "480p": "https://riselia.my.id/kdrive/8fzyQVieF8Q/Kuramanime-OP-1087-480p-Oploverz.mp4?lud=1743504155&pid=19762&sid=102161&cce=1",
+      "360p": "https://riselia.my.id/kdrive/LMGEKn4Q4rL/Kuramanime-OP-1087-360p-Oploverz.mp4?lud=1743504155&pid=19762&sid=102160&cce=1"
+    }
+  }
+]
+
+
+###
+// create all episode
+// anime One Piece 1088 - 1098
+POST {{base}}episodeBatch/85
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "title": "Mimpi Luffy",
+    "episodeNumber": 1088,
+    "videoURL": {
+      "720p": "https://waguri.my.id/kdrive/9djEKh8A6G0/Kuramanime-OP-1088-720p-Oploverz.mp4?lud=1743504176&pid=19943&sid=103164&cce=1",
+      "480p": "https://waguri.my.id/kdrive/xhnnXcSFMBo/Kuramanime-OP-1088-480p-Oploverz.mp4?lud=1743504176&pid=19943&sid=103163&cce=1",
+      "360p": "https://waguri.my.id/kdrive/4cDoqKTgSep/Kuramanime-OP-1088-360p-Oploverz.mp4?lud=1743504176&pid=19943&sid=103162&cce=1"
+    }
+  },
+  {
+    "title": "Memasuki Bab Baru! Arah Tujuan Luffy dan Sabo",
+    "episodeNumber": 1089,
+    "videoURL": {
+      "720p": "https://megumin.my.id/kdrive/7DfK9feL9rm/Kuramanime-OP-1089-720p-Oploverz.mp4?lud=1743504243&pid=20497&sid=106152&cce=1",
+      "480p": "https://megumin.my.id/kdrive/nkhkNRwaxRB/Kuramanime-OP-1089-480p-Oploverz.mp4?lud=1743504243&pid=20497&sid=106151&cce=1",
+      "360p": "https://megumin.my.id/kdrive/hNmNDZzFPm9/Kuramanime-OP-1089-360p-Oploverz.mp4?lud=1743504243&pid=20497&sid=106150&cce=1"
+    }
+  },
+  {
+    "title": "Pulau Baru! Pulai Masa Depan Egghead",
+    "episodeNumber": 1090,
+    "videoURL": {
+      "720p": "https://yoru.my.id/kdrive/xFLlh0gjzfO/Kuramanime-OP-1090-720p-Oploverz.mp4?lud=1743504287&pid=20668&sid=107847&cce=1",
+      "480p": "https://yoru.my.id/kdrive/FvBRQ54hn0f/Kuramanime-OP-1090-480p-Oploverz.mp4?lud=1743504287&pid=20668&sid=107846&cce=1",
+      "360p": "https://yoru.my.id/kdrive/C8Dv8wQjkp7/Kuramanime-OP-1090-360p-Oploverz.mp4?lud=1743504287&pid=20668&sid=107845&cce=1"
+    }
+  },
+  {
+    "title": "Penuh Dengan Masa Depan! Petualangan di Pulau Sains",
+    "episodeNumber": 1091,
+    "videoURL": {
+      "720p": "https://momo.my.id/kdrive/zpcs7i1LJUV/Kuramanime-OP-1091-720p-Oploverz.mp4?lud=1743504319&pid=20805&sid=108809&cce=1",
+      "480p": "https://momo.my.id/kdrive/gVvksQyqSh5/Kuramanime-OP-1091-480p-Oploverz.mp4?lud=1743504319&pid=20805&sid=108808&cce=1",
+      "360p": "https://momo.my.id/kdrive/k7F0gAMaz0S/Kuramanime-OP-1091-360p-Oploverz.mp4?lud=1743504319&pid=20805&sid=108807&cce=1"
+    }
+  },
+  {
+    "title": "Ratapan Bonney! Kegelapan Mengintai di Pulau Masa Depan",
+    "episodeNumber": 1092,
+    "videoURL": {
+      "720p": "https://shinoaki.my.id/kdrive/MJmlb5b7yih/Kuramanime-OP-1092-720p-Oploverz.mp4?lud=1743504343&pid=20937&sid=109459&cce=1",
+      "480p": "https://shinoaki.my.id/kdrive/8YPulrZJtt5/Kuramanime-OP-1092-480p-Oploverz.mp4?lud=1743504343&pid=20937&sid=109458&cce=1",
+      "360p": "https://shinoaki.my.id/kdrive/eAgmNZDiN1F/Kuramanime-OP-1092-360p-Oploverz.mp4?lud=1743504343&pid=20937&sid=109457&cce=1"
+    }
+  },
+  {
+    "title": "Pemenang Mengambil Segalanya! Law versus Kurohige!",
+    "episodeNumber": 1093,
+    "videoURL": {
+      "720p": "https://momo.my.id/kdrive/JqgMjbYNWv9/Kuramanime-OP-1093-720p-Oploverz.mp4?lud=1743504422&pid=21273&sid=112026&cce=1",
+      "480p": "https://momo.my.id/kdrive/ZIwIgLQzFIP/Kuramanime-OP-1093-480p-Oploverz.mp4?lud=1743504422&pid=21273&sid=112025&cce=1",
+      "360p": "https://momo.my.id/kdrive/LYbYthWCfun/Kuramanime-OP-1093-360p-Oploverz.mp4?lud=1743504422&pid=21273&sid=112024&cce=1"
+    }
+  },
+  {
+    "title": "Misteri Makin Dalam! Egghead Labophase",
+    "episodeNumber": 1094,
+    "videoURL": {
+      "720p": "https://lena.my.id/kdrive/ha0UpULni46/Kuramanime-OP-1094-720p-Oploverz.mp4?lud=1743504449&pid=21406&sid=112818&cce=1",
+      "480p": "https://lena.my.id/kdrive/OHJ0SL2fIxM/Kuramanime-OP-1094-480p-Oploverz.mp4?lud=1743504449&pid=21406&sid=112817&cce=1",
+      "360p": "https://lena.my.id/kdrive/pPEIWOujbIb/Kuramanime-OP-1094-360p-Oploverz.mp4?lud=1743504449&pid=21406&sid=112816&cce=1"
+    }
+  },
+  {
+    "title": "Otak Seorang Genius, Enam Vegapunk!",
+    "episodeNumber": 1095,
+    "videoURL": {
+      "720p": "https://villhaze.my.id/kdrive/QLsz0oAskly/Kuramanime-OP-1095-720p-Oploverz.mp4?lud=1743504469&pid=21562&sid=113585&cce=1",
+      "480p": "https://villhaze.my.id/kdrive/CHd8V7cyS8R/Kuramanime-OP-1095-480p-Oploverz.mp4?lud=1743504469&pid=21562&sid=113584&cce=1",
+      "360p": "https://villhaze.my.id/kdrive/6L90LI3Zqdb/Kuramanime-OP-1095-360p-Oploverz.mp4?lud=1743504469&pid=21562&sid=113583&cce=1"
+    }
+  },
+  {
+    "title": "Potongan Terlarang Sejarah! Teori Tentang Suatu Kerajaan",
+    "episodeNumber": 1096,
+    "videoURL": {
+      "720p": "https://tsukasa.my.id/kdrive/Jr9AMlLIHt5/Kuramanime-OP-1096-720p-Oploverz.mp4?lud=1743504493&pid=21706&sid=114302&cce=1",
+      "480p": "https://tsukasa.my.id/kdrive/6d8hwfopkEa/Kuramanime-OP-1096-480p-Oploverz.mp4?lud=1743504493&pid=21706&sid=114301&cce=1",
+      "360p": "https://tsukasa.my.id/kdrive/XhmyS68tMgw/Kuramanime-OP-1096-360p-Oploverz.mp4?lud=1743504493&pid=21706&sid=114300&cce=1"
+    }
+  },
+  {
+    "title": "Warisan Ohara! Penelitian yang Diwariskan",
+    "episodeNumber": 1097,
+    "videoURL": {
+      "720p": "https://asuna.my.id/kdrive/K1QDtvaaXAw/Kuramanime-OP-1097-720p-Oploverz.mp4?lud=1743504527&pid=21985&sid=115674&cce=1",
+      "480p": "https://asuna.my.id/kdrive/Pn3mDAjalzB/Kuramanime-OP-1097-480p-Oploverz.mp4?lud=1743504527&pid=21985&sid=115673&cce=1",
+      "360p": "https://asuna.my.id/kdrive/N5JqPceWMUV/Kuramanime-OP-1097-360p-Oploverz.mp4?lud=1743504527&pid=21985&sid=115672&cce=1"
+    }
+  },
+  {
+    "title": "Mimpi Eksentrik Seorang Genius!",
+    "episodeNumber": 1098,
+    "videoURL": {
+      "720p": "https://shoko.my.id/kdrive/yDhl8FTlt7O/Kuramanime-OP-1098-720p-Oploverz.mp4?lud=1743504551&pid=22166&sid=116584&cce=1",
+      "480p": "https://shoko.my.id/kdrive/SNqMBCKg85a/Kuramanime-OP-1098-480p-Oploverz.mp4?lud=1743504551&pid=22166&sid=116583&cce=1",
+      "360p": "https://shoko.my.id/kdrive/VPECpDAqcUV/Kuramanime-OP-1098-360p-Oploverz.mp4?lud=1743504551&pid=22166&sid=116582&cce=1"
+    }
+  }
+]
+
+
+###
+// create all episode
+// anime One Piece 1099 - 1109
+POST {{base}}episodeBatch/85
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "title": "Persiapan untuk Serangan Balik! Rob Lucci Menyerang!",
+    "episodeNumber": 1099,
+    "videoURL": {
+      "720p": "https://kikoru.my.id/kdrive/QbQxTi3f83o/Kuramanime-OP-1099-720p-Oploverz.mp4?lud=1743504567&pid=22311&sid=117294&cce=1",
+      "480p": "https://kikoru.my.id/kdrive/IG5Ac55qUtW/Kuramanime-OP-1099-480p-Oploverz.mp4?lud=1743504567&pid=22311&sid=117293&cce=1",
+      "360p": "https://kikoru.my.id/kdrive/pU8y7V7Wa4V/Kuramanime-OP-1099-360p-Oploverz.mp4?lud=1743504567&pid=22311&sid=117292&cce=1"
+    }
+  },
+  {
+    "title": "Kekuatan di Level Berbeda! Luffy versus Lucci!",
+    "episodeNumber": 1100,
+    "videoURL": {
+      "720p": "https://miyuki.my.id/kdrive/ou3jEVZ1vhW/Kuramanime-OP-1100-720p-Oploverz.mp4?lud=1743504581&pid=22439&sid=117919&cce=1",
+      "480p": "https://miyuki.my.id/kdrive/8QWIUDvcwUk/Kuramanime-OP-1100-480p-Oploverz.mp4?lud=1743504581&pid=22439&sid=117918&cce=1",
+      "360p": "https://miyuki.my.id/kdrive/jBpNq1HJGUI/Kuramanime-OP-1100-360p-Oploverz.mp4?lud=1743504581&pid=22439&sid=117917&cce=1"
+    }
+  },
+  {
+    "title": "Bentuk Terkuat Manusia! Kekuatan Seraphim!",
+    "episodeNumber": 1101,
+    "videoURL": {
+      "720p": "https://chizuru.my.id/kdrive/dABj7c0fHG7/Kuramanime-OP-1101-720p-Oploverz.mp4?lud=1743504625&pid=22727&sid=119346&cce=1",
+      "480p": "https://chizuru.my.id/kdrive/l8iE0ZkPe3Q/Kuramanime-OP-1101-480p-Oploverz.mp4?lud=1743504625&pid=22727&sid=119345&cce=1",
+      "360p": "https://chizuru.my.id/kdrive/tPLh5XSYFy8/Kuramanime-OP-1101-360p-Oploverz.mp4?lud=1743504625&pid=22727&sid=119344&cce=1"
+    }
+  },
+  {
+    "title": "Skema Menyeramkan! Operasi Melarikan Diri dari Egghead",
+    "episodeNumber": 1102,
+    "videoURL": {
+      "720p": "https://milim.my.id/kdrive/YmWJveKKew9/Kuramanime-OP-1102-720p-Oploverz.mp4?lud=1743504645&pid=22857&sid=119986&cce=1",
+      "480p": "https://milim.my.id/kdrive/HvTfXPoeN8J/Kuramanime-OP-1102-480p-Oploverz.mp4?lud=1743504645&pid=22857&sid=119985&cce=1",
+      "360p": "https://milim.my.id/kdrive/hdvGVDuTWJq/Kuramanime-OP-1102-360p-Oploverz.mp4?lud=1743504645&pid=22857&sid=119984&cce=1"
+    }
+  },
+  {
+    "title": "Kembalikan Ayahku! Keinginan Bonney yang Sia-sia!",
+    "episodeNumber": 1103,
+    "videoURL": {
+      "720p": "https://makima.my.id/kdrive/yfj5yHcF620/Kuramanime-OP-1103-720p-Oploverz.mp4?lud=1743504666&pid=23002&sid=120705&cce=1",
+      "480p": "https://makima.my.id/kdrive/BWqRFgoVQZA/Kuramanime-OP-1103-480p-Oploverz.mp4?lud=1743504666&pid=23002&sid=120704&cce=1",
+      "360p": "https://makima.my.id/kdrive/oEXP0MyLDKR/Kuramanime-OP-1103-360p-Oploverz.mp4?lud=1743504666&pid=23002&sid=120703&cce=1"
+    }
+  },
+  {
+    "title": "Situasi Putus Asa! Serangan Penuh Seraphim!",
+    "episodeNumber": 1104,
+    "videoURL": {
+      "720p": "https://mikasa.my.id/kdrive/1zHZEOfMeH4/Kuramanime-OP-1104-720p-Oploverz.mp4?lud=1743504683&pid=23126&sid=121330&cce=1",
+      "480p": "https://mikasa.my.id/kdrive/HbXXPD9oIPj/Kuramanime-OP-1104-480p-Oploverz.mp4?lud=1743504683&pid=23126&sid=121329&cce=1",
+      "360p": "https://mikasa.my.id/kdrive/ea4YMKeKvmN/Kuramanime-OP-1104-360p-Oploverz.mp4?lud=1743504683&pid=23126&sid=121328&cce=1"
+    }
+  },
+  {
+    "title": "Pengkhianatan yang Indah! Sang Mata-Mata, Stussy!",
+    "episodeNumber": 1105,
+    "videoURL": {
+      "720p": "https://chinatsu.my.id/kdrive/jWI7P6utGfx/Kuramanime-OP-1105-720p-Oploverz.mp4?lud=1743504699&pid=23250&sid=121950&cce=1",
+      "480p": "https://chinatsu.my.id/kdrive/rihnGZ1tYtW/Kuramanime-OP-1105-480p-Oploverz.mp4?lud=1743504699&pid=23250&sid=121949&cce=1",
+      "360p": "https://chinatsu.my.id/kdrive/6ggyLQJxNmd/Kuramanime-OP-1105-360p-Oploverz.mp4?lud=1743504699&pid=23250&sid=121948&cce=1"
+    }
+  },
+  {
+    "title": "Masalah Terjadi! Cari Dr. Vegapunk!",
+    "episodeNumber": 1106,
+    "videoURL": {
+      "720p": "https://sinon.my.id/kdrive/gOIFVMNb0wb/Kuramanime-OP-1106-720p-Oploverz.mp4?lud=1743504723&pid=23386&sid=122629&cce=1",
+      "480p": "https://sinon.my.id/kdrive/CnGBYi9vz62/Kuramanime-OP-1106-480p-Oploverz.mp4?lud=1743504723&pid=23386&sid=122628&cce=1",
+      "360p": "https://sinon.my.id/kdrive/9s8X33nzL3a/Kuramanime-OP-1106-360p-Oploverz.mp4?lud=1743504723&pid=23386&sid=122627&cce=1"
+    }
+  },
+  {
+    "title": "Getaran! Tangan Jahat Merayap ke Lab",
+    "episodeNumber": 1107,
+    "videoURL": {
+      "720p": "https://leshea.my.id/kdrive/kLzG1kvH4QN/Kuramanime-OP-1107-720p-Oploverz.mp4?lud=1743504743&pid=23506&sid=123229&cce=1",
+      "480p": "https://leshea.my.id/kdrive/piFT4YSw2ZR/Kuramanime-OP-1107-480p-Oploverz.mp4?lud=1743504743&pid=23506&sid=123228&cce=1",
+      "360p": "https://leshea.my.id/kdrive/NlnEaE1YY4p/Kuramanime-OP-1107-360p-Oploverz.mp4?lud=1743504743&pid=23506&sid=123227&cce=1"
+    }
+  },
+  {
+    "title": "Tidak Bisa Dipahami! Pemberontakan Seraphim!",
+    "episodeNumber": 1108,
+    "videoURL": {
+      "720p": "https://waguri.my.id/kdrive/C6nAUjbI4K1/Kuramanime-OP-1108-720p-Oploverz.mp4?lud=1743504763&pid=23626&sid=123828&cce=1",
+      "480p": "https://waguri.my.id/kdrive/Hj5VUoqgRsx/Kuramanime-OP-1108-480p-Oploverz.mp4?lud=1743504763&pid=23626&sid=123827&cce=1",
+      "360p": "https://waguri.my.id/kdrive/KwAUCPNQqcg/Kuramanime-OP-1108-360p-Oploverz.mp4?lud=1743504763&pid=23626&sid=123826&cce=1"
+    }
+  },
+  {
+    "title": "Keputusan Sulit! Kerja Sama yang Tidak Biasa!",
+    "episodeNumber": 1109,
+    "videoURL": {
+      "720p": "https://marin.my.id/kdrive/IAn2JcpKlkE/Kuramanime-OP-1109-720p-Oploverz.mp4?lud=1743504805&pid=23890&sid=125136&cce=1",
+      "480p": "https://marin.my.id/kdrive/2viTx3yvA9i/Kuramanime-OP-1109-480p-Oploverz.mp4?lud=1743504805&pid=23890&sid=125135&cce=1",
+      "360p": "https://marin.my.id/kdrive/sDyeIfeuDeJ/Kuramanime-OP-1109-360p-Oploverz.mp4?lud=1743504805&pid=23890&sid=125134&cce=1"
+    }
+  }
+]
+
+
+###
+// create all episode
+// anime One Piece 1110 - 1120
+POST {{base}}episodeBatch/85
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "title": "Bertahanlah! Pertempuran Mematikan dengan Bentuk Kekuatan Manusia Terkuat",
+    "episodeNumber": 1110,
+    "videoURL": {
+      "720p": "https://amiya.my.id/kdrive/pG5xrgHkGl5/Kuramanime-OP-1110-720p-Oploverz.mp4?lud=1743504858&pid=24202&sid=126939&cce=1",
+      "480p": "https://amiya.my.id/kdrive/ttEdj3AvTsu/Kuramanime-OP-1110-480p-Oploverz.mp4?lud=1743504858&pid=24202&sid=126938&cce=1",
+      "360p": "https://amiya.my.id/kdrive/W8faIKlMZp9/Kuramanime-OP-1110-360p-Oploverz.mp4?lud=1743504858&pid=24202&sid=126937&cce=1"
+    }
+  },
+  {
+    "title": "Ohara Kedua! Ambisi sang Dalang!",
+    "episodeNumber": 1111,
+    "videoURL": {
+      "720p": "https://chisa.my.id/kdrive/JqQQABIbogv/Kuramanime-OP-1111-720p-Oploverz.mp4?lud=1743504882&pid=24421&sid=128066&cce=1",
+      "480p": "https://chisa.my.id/kdrive/qRRtVAp7fZu/Kuramanime-OP-1111-480p-Oploverz.mp4?lud=1743504882&pid=24421&sid=128065&cce=1",
+      "360p": "https://chisa.my.id/kdrive/a2y6SvMjLA8/Kuramanime-OP-1111-360p-Oploverz.mp4?lud=1743504882&pid=24421&sid=128064&cce=1"
+    }
+  },
+  {
+    "title": "Bentrok! Shanks versus Eustass Kid",
+    "episodeNumber": 1112,
+    "videoURL": {
+      "720p": "https://iino.my.id/kdrive/d3qqQGzJAVh/Kuramanime-OP-1112-720p-Oploverz.mp4?lud=1743504913&pid=24628&sid=129224&cce=1",
+      "480p": "https://iino.my.id/kdrive/rbmf3h1aFCd/Kuramanime-OP-1112-480p-Oploverz.mp4?lud=1743504913&pid=24628&sid=129223&cce=1",
+      "360p": "https://iino.my.id/kdrive/IXsfVWGXHKi/Kuramanime-OP-1112-360p-Oploverz.mp4?lud=1743504913&pid=24628&sid=129222&cce=1"
+    }
+  },
+  {
+    "title": "Lari, Koby! Strategi Pelarian yang Putus Asa!",
+    "episodeNumber": 1113,
+    "videoURL": {
+      "720p": "https://chinatsu.my.id/kdrive/sDN9UY3Rmfb/Kuramanime-OP-1113-720p-Oploverz.mp4?lud=1743505001&pid=25101&sid=131680&cce=1",
+      "480p": "https://chinatsu.my.id/kdrive/P9ZKDQ1ON6P/Kuramanime-OP-1113-480p-Oploverz.mp4?lud=1743505001&pid=25101&sid=131679&cce=1",
+      "360p": "https://chinatsu.my.id/kdrive/4nYccep8e1h/Kuramanime-OP-1113-360p-Oploverz.mp4?lud=1743505001&pid=25101&sid=131678&cce=1"
+    }
+  },
+  {
+    "title": "Untuk Murid Tercinta, Tinju Wakil Laksamana Garp!",
+    "episodeNumber": 1114,
+    "videoURL": {
+      "720p": "https://tsukasa.my.id/kdrive/5lF0rMpUC3k/Kuramanime-OP-1114-720p-Oploverz.mp4?lud=1743505042&pid=25342&sid=132948&cce=1",
+      "480p": "https://tsukasa.my.id/kdrive/spBxEOrC2gF/Kuramanime-OP-1114-480p-Oploverz.mp4?lud=1743505042&pid=25342&sid=132947&cce=1",
+      "360p": "https://tsukasa.my.id/kdrive/NMsy1BqvHft/Kuramanime-OP-1114-360p-Oploverz.mp4?lud=1743505042&pid=25342&sid=132946&cce=1"
+    }
+  },
+  {
+    "title": "Angkatan Laut Terkejut! Mantan Laksamana Markas Besar Angkatan Laut, Kuzan",
+    "episodeNumber": 1115,
+    "videoURL": {
+      "720p": "https://iino.my.id/kdrive/xYz5qeUKbZH/Kuramanime-OP-1115-720p-Oploverz.mp4?lud=1743505069&pid=25536&sid=133943&cce=1",
+      "480p": "https://iino.my.id/kdrive/mEzUdEmvVv5/Kuramanime-OP-1115-480p-Oploverz.mp4?lud=1743505069&pid=25536&sid=133942&cce=1",
+      "360p": "https://iino.my.id/kdrive/kaArxvnqqU9/Kuramanime-OP-1115-360p-Oploverz.mp4?lud=1743505069&pid=25536&sid=133941&cce=1"
+    }
+  },
+  {
+    "title": "Mari Dapatkan! Deklarasi Besar Buggy",
+    "episodeNumber": 1116,
+    "videoURL": {
+      "720p": "https://makima.my.id/kdrive/9QCUQCLkcTP/Kuramanime-OP-1116-720p-Oploverz.mp4?lud=1743505106&pid=25763&sid=135081&cce=1",
+      "480p": "https://makima.my.id/kdrive/TEs0cjLxfFo/Kuramanime-OP-1116-480p-Oploverz.mp4?lud=1743505106&pid=25763&sid=135080&cce=1",
+      "360p": "https://makima.my.id/kdrive/w0k1SEGNlFi/Kuramanime-OP-1116-360p-Oploverz.mp4?lud=1743505106&pid=25763&sid=135079&cce=1"
+    }
+  },
+  {
+    "title": "Sabo Kembali, Kebenaran Mengejutkan yang akan Terungkap!",
+    "episodeNumber": 1117,
+    "videoURL": {
+      "720p": "https://sinon.my.id/kdrive/S9Bt6002h7p/Kuramanime-OP-1117-720p-Oploverz.mp4?lud=1743505148&pid=26041&sid=136466&cce=1",
+      "480p": "https://sinon.my.id/kdrive/K9QyyQQ0tM5/Kuramanime-OP-1117-480p-Oploverz.mp4?lud=1743505148&pid=26041&sid=136465&cce=1",
+      "360p": "https://sinon.my.id/kdrive/yW9VPBI7fWZ/Kuramanime-OP-1117-360p-Oploverz.mp4?lud=1743505148&pid=26041&sid=136464&cce=1"
+    }
+  },
+  {
+    "title": "Tanah Suci dalam Kekacauan! Serangan Kekuatan Penuh Sai dan Leo!",
+    "episodeNumber": 1118,
+    "videoURL": {
+      "720p": "https://ultimatia.my.id/kdrive/olyI7kRgLn6/Kuramanime-OP-1118-720p-Oploverz.mp4?lud=1743505167&pid=26174&sid=137123&cce=1",
+      "480p": "https://ultimatia.my.id/kdrive/8kQVD7OgpE2/Kuramanime-OP-1118-480p-Oploverz.mp4?lud=1743505167&pid=26174&sid=137122&cce=1",
+      "360p": "https://ultimatia.my.id/kdrive/NSa1x2MDD6L/Kuramanime-OP-1118-360p-Oploverz.mp4?lud=1743505167&pid=26174&sid=137121&cce=1"
+    }
+  },
+  {
+    "title": "Pesan yang Dititipkan! Tekad Raja Cobra",
+    "episodeNumber": 1119,
+    "videoURL": {
+      "720p": "https://yae.my.id/kdrive/E6K26cBA4BW/Kuramanime-OP-1119-720p-Oploverz.mp4?lud=1743505185&pid=26309&sid=137818&cce=1",
+      "480p": "https://yae.my.id/kdrive/6Orwu4z9ayq/Kuramanime-OP-1119-480p-Oploverz.mp4?lud=1743505185&pid=26309&sid=137817&cce=1",
+      "360p": "https://yae.my.id/kdrive/cfMuBH9hYQe/Kuramanime-OP-1119-360p-Oploverz.mp4?lud=1743505185&pid=26309&sid=137816&cce=1"
+    }
+  },
+  {
+    "title": "Dunia Berguncang! Putusan sang Penguasa dan Tindakan Gorosei!",
+    "episodeNumber": 1120,
+    "videoURL": {
+      "720p": "https://marin.my.id/kdrive/hZCQcszsisL/Kuramanime-OP-1120-720p-Oploverz.mp4?lud=1743505234&pid=26484&sid=138666&cce=1",
+      "480p": "https://marin.my.id/kdrive/wMJ48JDsiFx/Kuramanime-OP-1120-480p-Oploverz.mp4?lud=1743505234&pid=26484&sid=138665&cce=1",
+      "360p": "https://marin.my.id/kdrive/q6bN5sPscgt/Kuramanime-OP-1120-360p-Oploverz.mp4?lud=1743505233&pid=26484&sid=138664&cce=1"
+    }
+  }
+]
+
+
+###
+// create all episode
+// anime One Piece 1121 - 1131
+POST {{base}}episodeBatch/85
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "title": "Garp dan Kuzan - Bentrokan Keyakinan antara Guru dan Murid",
+    "episodeNumber": 1121,
+    "videoURL": {
+      "720p": "https://shinoaki.my.id/kdrive/I1JsfYpoNNh/Kuramanime-OP-1121-720p-Oploverz.mp4?lud=1743505308&pid=26765&sid=140053&cce=1",
+      "480p": "https://shinoaki.my.id/kdrive/4BucWPs4dtg/Kuramanime-OP-1121-480p-Oploverz.mp4?lud=1743505308&pid=26765&sid=140052&cce=1",
+      "360p": "https://shinoaki.my.id/kdrive/GkgC70V86KF/Kuramanime-OP-1121-360p-Oploverz.mp4?lud=1743505308&pid=26765&sid=140051&cce=1"
+    }
+  },
+  {
+    "title": "Pelajaran Terakhir! Impak yang Diwariskan",
+    "episodeNumber": 1122,
+    "videoURL": {
+      "720p": "https://kurisu.my.id/kdrive/XIq2GoorJDh/Kuramanime-OP-1122-720p-Oploverz.mp4?lud=1743505345&pid=26933&sid=140903&cce=1",
+      "480p": "https://kurisu.my.id/kdrive/TJX8P05YRiX/Kuramanime-OP-1122-480p-Oploverz.mp4?lud=1743505345&pid=26933&sid=140902&cce=1",
+      "360p": "https://kurisu.my.id/kdrive/OkthJJwqulH/Kuramanime-OP-1122-360p-Oploverz.mp4?lud=1743505345&pid=26933&sid=140901&cce=1"
+    }
+  },
+  {
+    "title": "Dunia Gempar! Insiden Penyanderaan oleh Topi Jerami",
+    "episodeNumber": 1123,
+    "videoURL": {
+      "720p": "https://waguri.my.id/kdrive/bEnSH2ZDaJH/Kuramanime-OP-1123-720p-IQ.mp4?lud=1744219310&pid=31107&sid=161828&cce=1",
+      "480p": "https://waguri.my.id/kdrive/U2vcezFCnyCp/Kuramanime-OP-1123-480p-IQ.mp4?lud=1744219310&pid=31107&sid=161827&cce=1",
+      "360p": "https://waguri.my.id/kdrive/hUuD5qcI20v/Kuramanime-OP-1123-360p-IQ.mp4?lud=1744219310&pid=31107&sid=161826&cce=1"
+    }
+  },
+  {
+    "title": "Pengepungan Total! Operasi Pelarian Egghead",
+    "episodeNumber": 1124,
+    "videoURL": {
+      "720p": "https://mushoku.my.id/kdrive/CO3wGwhPnAyREFg/Kuramanime-ONEPC-1124-720p-IQ.mp4?lud=1744219365&pid=31195&sid=162268&cce=1",
+      "480p": "https://mushoku.my.id/kdrive/A8FtnZXOutigC/Kuramanime-ONEPC-1124-480p-IQ.mp4?lud=1744219365&pid=31195&sid=162267&cce=1",
+      "360p": "https://mushoku.my.id/kdrive/f4exFPBAp8KccH/Kuramanime-ONEPC-1124-360p-IQ.mp4?lud=1744219365&pid=31195&sid=162266&cce=1"
+    }
+  },
+  {
+    "title": "Benturan Tekad Dua Pria! Kizaru dan Sentomaru",
+    "episodeNumber": 1125,
+    "videoURL": {
+      "720p": "https://yae.my.id/kdrive/3UBdjoTz0B1/Kuramanime-ONEPC-1125-720p-IQ.mp4?lud=1745164767&pid=31361&sid=163205&cce=1",
+      "480p": "https://yae.my.id/kdrive/RMQLkNTiBqzr/Kuramanime-ONEPC-1125-480p-IQ.mp4?lud=1745164767&pid=31361&sid=163204&cce=1",
+      "360p": "https://yae.my.id/kdrive/lfdiHoxlauslnM/Kuramanime-ONEPC-1125-360p-IQ.mp4?lud=1745164767&pid=31361&sid=163203&cce=1"
+    }
+  },
+  {
+    "title": "Keputusasaan yang Menghantui! Misi Kelam Laksamana Kizaru",
+    "episodeNumber": 1126,
+    "videoURL": {
+      "720p": "https://filo.my.id/kdrive/phRJpxClKzmosl/Kuramanime-ONEPC-1126-720p-IQ.mp4?lud=1745428238&pid=31634&sid=164536&cce=1",
+      "480p": "https://filo.my.id/kdrive/A0qJgZEeo3PqnI/Kuramanime-ONEPC-1126-480p-IQ.mp4?lud=1745428238&pid=31634&sid=164535&cce=1",
+      "360p": "https://filo.my.id/kdrive/ctWhhmXdUxVWZ/Kuramanime-ONEPC-1126-360p-IQ.mp4?lud=1745428238&pid=31634&sid=164534&cce=1"
+    }
+  },
+  {
+    "title": "Luffy versus Kizaru! Pertarungan Sengit Penuh Perubahan",
+    "episodeNumber": 1127,
+    "videoURL": {
+      "720p": "https://lena.my.id/kdrive/hsXqnOT3GJhO/Kuramanime-ONEPC-1127-720p-IQ.mp4?lud=1746067736&pid=31768&sid=165206&cce=1",
+      "480p": "https://lena.my.id/kdrive/YkRoTb2yncwe/Kuramanime-ONEPC-1127-480p-IQ.mp4?lud=1746067736&pid=31768&sid=165205&cce=1",
+      "360p": "https://lena.my.id/kdrive/sccPgcY6uwla4/Kuramanime-ONEPC-1127-360p-IQ.mp4?lud=1746067736&pid=31768&sid=165204&cce=1"
+    }
+  },
+  {
+    "title": "Mimpi Buruk Menyerang - Dewa Pelindung Sains, Saint Saturn",
+    "episodeNumber": 1128,
+    "videoURL": {
+      "720p": "https://chizuru.my.id/kdrive/9O17LiVg8d7/Kuramanime-ONEPC-1128-720p-IQ.mp4?lud=1746643505&pid=31925&sid=165978&cce=1",
+      "480p": "https://chizuru.my.id/kdrive/4itoNhgxYNE/Kuramanime-ONEPC-1128-480p-IQ.mp4?lud=1746643505&pid=31925&sid=165977&cce=1",
+      "360p": "https://chizuru.my.id/kdrive/KGyQrL1Afv33q8i/Kuramanime-ONEPC-1128-360p-IQ.mp4?lud=1746643505&pid=31925&sid=165976&cce=1"
+    }
+  },
+  {
+    "title": "Masa Lalu Kuma - Lebih Baik Mati di Dunia Ini",
+    "episodeNumber": 1129,
+    "videoURL": {
+      "720p": "https://shinoaki.my.id/kdrive/FLrSECY5KRhjPc/Kuramanime-ONEPC-1129-720p-IQ.mp4?lud=1747934467&pid=32321&sid=168077&cce=1",
+      "480p": "https://shinoaki.my.id/kdrive/l5Xf9DIKiwfy/Kuramanime-ONEPC-1129-480p-IQ.mp4?lud=1747934467&pid=32321&sid=168076&cce=1",
+      "360p": "https://shinoaki.my.id/kdrive/XXmGkBomaTT8I/Kuramanime-ONEPC-1129-360p-IQ.mp4?lud=1747934467&pid=32321&sid=168075&cce=1"
+    }
+  },
+  {
+    "title": "Sejarah yang Terhapus! God Valley yang Penuh Keputusasaan",
+    "episodeNumber": 1130,
+    "videoURL": {
+      "720p": "https://kurisu.my.id/kdrive/lHTO70cvkadfy/Kuramanime-ONEPC-1130-720p-IQ.mp4?lud=1748351496&pid=32582&sid=169379&cce=1",
+      "480p": "https://kurisu.my.id/kdrive/pIVWSVsqCUpr/Kuramanime-ONEPC-1130-480p-IQ.mp4?lud=1748351496&pid=32582&sid=169378&cce=1",
+      "360p": "https://kurisu.my.id/kdrive/Lk7nZD4wji7/Kuramanime-ONEPC-1130-360p-IQ.mp4?lud=1748351496&pid=32582&sid=169377&cce=1"
+    }
+  },
+  {
+    "title": "Kebahagiaan Sesaat - Kumachi dan Ginny",
+    "episodeNumber": 1131,
+    "videoURL": {
+      "720p": "https://miyuki.my.id/kdrive/SMM0eCxrqgi7X/Kuramanime-ONEPC-1131-720p-IQ.mp4?lud=1748793939&pid=32706&sid=169997&cce=1",
+      "480p": "https://miyuki.my.id/kdrive/Z90WGsjxiqBYi/Kuramanime-ONEPC-1131-480p-IQ.mp4?lud=1748793939&pid=32706&sid=169996&cce=1",
+      "360p": "https://miyuki.my.id/kdrive/D3KsGazslrQJR/Kuramanime-ONEPC-1131-360p-IQ.mp4?lud=1748793938&pid=32706&sid=169995&cce=1"
+    }
+  }
+]
+
+
+###
+// create all episode
+// anime One Piece 1141 - 1149
+POST {{base}}episodeBatch/85
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "title": "Janji untuk Ginny - Kuma Menjadi Seorang Ayah",
+    "episodeNumber": 1132,
+    "videoURL": {
+      "720p": "https://chisa.my.id/kdrive/GeAgVekz6TwBs65/Kuramanime-ONEPC-1132-720p-IQ.mp4?lud=1749399314&pid=32939&sid=171150&cce=1",
+      "480p": "https://chisa.my.id/kdrive/x2bfQcyJPh4x/Kuramanime-ONEPC-1132-480p-IQ.mp4?lud=1749399314&pid=32939&sid=171149&cce=1",
+      "360p": "https://chisa.my.id/kdrive/ZJ5mBx6z1qkN/Kuramanime-ONEPC-1132-360p-IQ.mp4?lud=1749399313&pid=32939&sid=171148&cce=1"
+    }
+  },
+  {
+    "title": "Demi Menyelamatkan Bonney - Kuma sang Pacifista Penakut",
+    "episodeNumber": 1133,
+    "videoURL": {
+      "720p": "https://riselia.my.id/kdrive/ZZWRp2iwjRsv/Kuramanime-ONEPC-1133-720p-KuramaFix.mp4?lud=1750003825&pid=33208&sid=172505&cce=1",
+      "480p": "https://riselia.my.id/kdrive/A08NnNt8egoV/Kuramanime-ONEPC-1133-480p-KuramaFix.mp4?lud=1750003825&pid=33208&sid=172504&cce=1",
+      "360p": "https://riselia.my.id/kdrive/fsBIaGnIaecP/Kuramanime-ONEPC-1133-360p-KuramaFix.mp4?lud=1750003824&pid=33208&sid=172503&cce=1"
+    }
+  },
+  {
+    "title": "Takdir Kejam -  Keputusan Kuma Sebagai Seorang Ayah",
+    "episodeNumber": 1134,
+    "videoURL": {
+      "720p": "https://juliet.my.id/kdrive/jXyIMad4YbvHUU/Kuramanime-ONEPC-1134-720p-IQ.mp4?lud=1751214262&pid=33622&sid=174707&cce=1",
+      "480p": "https://juliet.my.id/kdrive/RbdHNvjyymXeo/Kuramanime-ONEPC-1134-480p-IQ.mp4?lud=1751214261&pid=33622&sid=174706&cce=1",
+      "360p": "https://juliet.my.id/kdrive/RGXk7HYXuxeIEKG/Kuramanime-ONEPC-1134-360p-IQ.mp4?lud=1751214261&pid=33622&sid=174705&cce=1"
+    }
+  },
+  {
+    "title": "Menuju Laut Tempat Ayahku Berada! Masa Depan yang Dipilih Bonney",
+    "episodeNumber": 1135,
+    "videoURL": {
+      "720p": "https://marin.my.id/kdrive/4pAVacrlISDtAHM/Kuramanime-ONEPC-1135-720p-IQ.mp4?lud=1751819897&pid=33802&sid=175588&cce=1",
+      "480p": "https://marin.my.id/kdrive/lK4rqa70DI8nQwN/Kuramanime-ONEPC-1135-480p-IQ.mp4?lud=1751819896&pid=33802&sid=175587&cce=1",
+      "360p": "https://marin.my.id/kdrive/KVF5rBw3XPnq/Kuramanime-ONEPC-1135-360p-IQ.mp4?lud=1751819896&pid=33802&sid=175586&cce=1"
+    }
+  },
+  {
+    "title": "Kehidupan Kuma",
+    "episodeNumber": 1136,
+    "videoURL": {
+      "720p": "https://ruka.my.id/kdrive/PK40bHlA1tLIV9W/Kuramanime-ONEPC-1136-720p-IQ.mp4?lud=1752422960&pid=33970&sid=176423&cce=1",
+      "480p": "https://ruka.my.id/kdrive/GPgtX84VJ5aP/Kuramanime-ONEPC-1136-480p-IQ.mp4?lud=1752422959&pid=33970&sid=176422&cce=1",
+      "360p": "https://ruka.my.id/kdrive/v4jdiOWYiQF/Kuramanime-ONEPC-1136-360p-IQ.mp4?lud=1752422959&pid=33970&sid=176421&cce=1"
+    }
+  },
+  {
+    "title": "Maaf, Ayah - Tangisan Bonney dan Tinju Kuma",
+    "episodeNumber": 1137,
+    "videoURL": {
+      "720p": "https://ultimatia.my.id/kdrive/bywNJs7EsvM7LXC/Kuramanime-ONEPC-1137-720p-IQ.mp4?lud=1753632325&pid=34359&sid=178333&cce=1",
+      "480p": "https://ultimatia.my.id/kdrive/jpDGJcRVDW2dnu/Kuramanime-ONEPC-1137-480p-IQ.mp4?lud=1753632325&pid=34359&sid=178332&cce=1",
+      "360p": "https://ultimatia.my.id/kdrive/Ecspa8Pz6E4g/Kuramanime-ONEPC-1137-360p-IQ.mp4?lud=1753632324&pid=34359&sid=178331&cce=1"
+    }
+  },
+  {
+    "title": "Terima Kasih, Ayah -  Pelukan Hangat Bonney dan Kuma",
+    "episodeNumber": 1138,
+    "videoURL": {
+      "720p": "https://asuna.my.id/kdrive/W3RAN2lnmVYrXcx/Kuramanime-ONEPC-1138-720p-IQ.mp4?lud=1754300728&pid=34579&sid=179855&cce=1",
+      "480p": "https://asuna.my.id/kdrive/Rq8Us2g6wcUFR/Kuramanime-ONEPC-1138-480p-IQ.mp4?lud=1754300727&pid=34579&sid=179854&cce=1",
+      "360p": "https://asuna.my.id/kdrive/KyJXlSgNsdGQ4/Kuramanime-ONEPC-1138-360p-IQ.mp4?lud=1754300727&pid=34579&sid=179853&cce=1"
+    }
+  },
+  {
+    "title": "Hancurkan Egghead - Buster Call Dikerahkan",
+    "episodeNumber": 1139,
+    "videoURL": {
+      "720p": "https://nobara.my.id/kdrive/8uBozltKY1fIeP/Kuramanime-ONEPC-1139-720p-IQ.mp4?lud=1754886856&pid=35163&sid=182826&cce=1",
+      "480p": "https://nobara.my.id/kdrive/FYwn42alzNW/Kuramanime-ONEPC-1139-480p-IQ.mp4?lud=1754886856&pid=35163&sid=182825&cce=1",
+      "360p": "https://nobara.my.id/kdrive/sHHj4hzuDaq/Kuramanime-ONEPC-1139-360p-IQ.mp4?lud=1754886855&pid=35163&sid=182824&cce=1"
+    }
+  },
+  {
+    "title": "Pahlawan yang Dikagumi - Kesatria Pembebasan yang Menyelamatkan Bonney",
+    "episodeNumber": 1140,
+    "videoURL": {
+      "720p": "https://tinasha.my.id/kdrive/fa0n2tgRMrfAHz9/Kuramanime-ONEPC-1140-720p-IQ.mp4?lud=1755593215&pid=35659&sid=185966&cce=1",
+      "480p": "https://tinasha.my.id/kdrive/URL3fb8oW3wAwJ/Kuramanime-ONEPC-1140-480p-IQ.mp4?lud=1755593215&pid=35659&sid=185965&cce=1",
+      "360p": "https://tinasha.my.id/kdrive/BotZStHaFdGt/Kuramanime-ONEPC-1140-360p-IQ.mp4?lud=1755593214&pid=35659&sid=185964&cce=1"
+    }
+  }
+]
+
+
+###
+// create all episode
+// anime One Piece 1141 - 1149
+POST {{base}}episodeBatch/85
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "title": "Bala Bantuan Tepercaya! Kedatangan Dorry dan Brogy",
+    "episode": 1141,
+    "videoURL": {
+      "720p": "https://miyuki.my.id/kdrive/cVflxT7ntt5c/Kuramanime-ONEPC-1141-720p-IQ.mp4?lud=1756439560&pid=36021&sid=187716&cce=1",
+      "480p": "https://miyuki.my.id/kdrive/MkuINGYJFGj/Kuramanime-ONEPC-1141-480p-IQ.mp4?lud=1756439560&pid=36021&sid=187715&cce=1",
+      "360p": "https://miyuki.my.id/kdrive/Rsda6ruONmECv/Kuramanime-ONEPC-1141-360p-IQ.mp4?lud=1756439560&pid=36021&sid=187714&cce=1"
+    }
+  },
+  {
+    "title": "Dengarkanlah, Dunia - Pesan Vegapunk",
+    "episode": 1142,
+    "videoURL": {
+      "720p": "https://kanae.my.id/kdrive/GFIXrwTZoFZkcmY/Kuramanime-ONEPC-1142-720p-IQ.mp4?lud=1759731382&pid=36668&sid=191057&cce=1",
+      "480p": "https://kanae.my.id/kdrive/P5TBc6WO5jpq4/Kuramanime-ONEPC-1142-480p-IQ.mp4?lud=1759731382&pid=36668&sid=191056&cce=1",
+      "360p": "https://kanae.my.id/kdrive/zYBscRUOAL4zfl/Kuramanime-ONEPC-1142-360p-IQ.mp4?lud=1759731381&pid=36668&sid=191055&cce=1"
+    }
+  },
+  {
+    "title": "Rencana Rahasia Vegapunk - Siaran Dunia Yang Menegangkan",
+    "episode": 1143,
+    "videoURL": {
+      "720p": "https://anisphia.my.id/kdrive/xxFHAMmc6pmpheX/Kuramanime-ONEPC-1143-720p-IQ.mp4?lud=1758566334&pid=36827&sid=191837&cce=1",
+      "480p": "https://anisphia.my.id/kdrive/gJLy1Bnq48bUb/Kuramanime-ONEPC-1143-480p-IQ.mp4?lud=1758566334&pid=36827&sid=191836&cce=1",
+      "360p": "https://anisphia.my.id/kdrive/vDshfq3s5asFS/Kuramanime-ONEPC-1143-360p-IQ.mp4?lud=1758566334&pid=36827&sid=191835&cce=1"
+    }
+  },
+  {
+    "title": "Mimpi Buruk Terbesar - Bersatunya Para Gorosei",
+    "episode": 1144,
+    "videoURL": {
+      "720p": "https://riselia.my.id/kdrive/VMpn5fsqAuQ/Kuramanime-ONEPC-1144-720p-IQ.mp4?lud=1758777381&pid=37041&sid=193042&cce=1",
+      "480p": "https://riselia.my.id/kdrive/9i0c50BJ1DOKM/Kuramanime-ONEPC-1144-480p-IQ.mp4?lud=1758777381&pid=37041&sid=193041&cce=1",
+      "360p": "https://riselia.my.id/kdrive/cOeArkzLVKqsq0y/Kuramanime-ONEPC-1144-360p-IQ.mp4?lud=1758777381&pid=37041&sid=193040&cce=1"
+    }
+  },
+  {
+    "title": "Teman Bertarung Bersama! Luffy dan Ksatria Elbaf",
+    "episode": 1145,
+    "videoURL": {
+      "720p": "https://iino.my.id/kdrive/4ieUe0CWcjf/Kuramanime-ONEPC-1145-720p-IQ.mp4?lud=1760781405&pid=37403&sid=194978&cce=1",
+      "480p": "https://iino.my.id/kdrive/NIEjivBWwSEH/Kuramanime-ONEPC-1145-480p-IQ.mp4?lud=1760781405&pid=37403&sid=194977&cce=1",
+      "360p": "https://iino.my.id/kdrive/LzhlGVK3UyP7/Kuramanime-ONEPC-1145-360p-IQ.mp4?lud=1760781405&pid=37403&sid=194976&cce=1"
+    }
+  },
+  {
+    "title": "Ancaman Yang Terlelakkan - Tekad Stussy dan Edison",
+    "episode": 1146,
+    "videoURL": {
+      "720p": "https://shinoaki.my.id/kdrive/KKNbXnIPKh9ji3u/Kuramanime-ONEPC-1146-720p-IQ.mp4?lud=1760889909&pid=38873&sid=202936&cce=1",
+      "480p": "https://shinoaki.my.id/kdrive/T6gEWpp7pJSMBP/Kuramanime-ONEPC-1146-480p-IQ.mp4?lud=1760889907&pid=38873&sid=202935&cce=1",
+      "360p": "https://shinoaki.my.id/kdrive/LRoL5sJJe1NIV9/Kuramanime-ONEPC-1146-360p-IQ.mp4?lud=1760889906&pid=38873&sid=202934&cce=1"
+    }
+  },
+  {
+    "title": "Kesimpulan yang Mengejutkan - Ramalan Besar Vegapunk",
+    "episode": 1147,
+    "videoURL": {
+      "720p": "https://chisa.my.id/kdrive/v5w29ftxnBihMrw/Kuramanime-ONEPC-1147-720p-IQ.mp4?lud=1761578693&pid=39178&sid=204174&cce=1",
+      "480p": "https://chisa.my.id/kdrive/VG0vhvqX8KUU6U/Kuramanime-ONEPC-1147-480p-IQ.mp4?lud=1761578692&pid=39178&sid=204173&cce=1",
+      "360p": "https://chisa.my.id/kdrive/MI26Nz5NWeg/Kuramanime-ONEPC-1147-360p-IQ.mp4?lud=1761578691&pid=39178&sid=204172&cce=1"
+    }
+  },
+  {
+    "title": "Sejarah yang Hilang - Joyboy, Bajak Laut Pertama",
+    "episode": 1148,
+    "videoURL": {
+      "720p": "https://megumin.my.id/kdrive/cwupfYdy0fA4Hq/Kuramanime-ONEPC-1148-720p-IQ.mp4?lud=1762099481&pid=39447&sid=205821&cce=1",
+      "480p": "https://megumin.my.id/kdrive/y74ZWkZ0L1GBR6n/Kuramanime-ONEPC-1148-480p-IQ.mp4?lud=1762099480&pid=39447&sid=205820&cce=1",
+      "360p": "https://megumin.my.id/kdrive/Iw53hpPtnrrF/Kuramanime-ONEPC-1148-360p-IQ.mp4?lud=1762099479&pid=39447&sid=205819&cce=1"
+    }
+  },
+  {
+    "title": "Abad Kekosongan - Nubuat Tentang Dunia yang Tenggelam",
+    "episode": 1149,
+    "videoURL": {
+      "720p": "https://milim.my.id/kdrive/eYDWpkPMCHMw/Kuramanime-ONEPC-1149-720p-IQ.mp4?lud=1762704371&pid=39741&sid=207421&cce=1",
+      "480p": "https://milim.my.id/kdrive/pNJOYup1ZZdNGR0/Kuramanime-ONEPC-1149-480p-IQ.mp4?lud=1762704370&pid=39741&sid=207420&cce=1",
+      "360p": "https://milim.my.id/kdrive/TfW6uTNBcH6kzD/Kuramanime-ONEPC-1149-360p-IQ.mp4?lud=1762704369&pid=39741&sid=207419&cce=1"
+    }
+  }
+]
+
+
+###
+// create all episode
+// anime Maou gakuin
+
+POST {{base}}episodeBatch/5
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "title" : "Sasha's True Intentions",
+    "episodeNumber": 3,
+    "videoURL": {
+      "720p": "https://ultimatia.my.id/kdrive/e9OBnsr31Ym/Kuramanime-MGFTK_BD-03-720p-Zensub.mp4?lud=1743502998&pid=12163&sid=62510&cce=1",
+      "480p": "https://ultimatia.my.id/kdrive/GCxSR5zFP9q/Kuramanime-MGFTK_BD-03-480p-Zensub.mp4?lud=1743502998&pid=12163&sid=62509&cce=1",
+      "360p": "https://ultimatia.my.id/kdrive/irKHMm4Ir7E/Kuramanime-MGFTK_BD-03-360p-Zensub.mp4?lud=1743502998&pid=12163&sid=62508&cce=1"
+    }
+  },
+  {
+    "title": "15th Birthday",
+    "episodeNumber": 4,
+    "videoURL": {
+      "720p": "https://villhaze.my.id/kdrive/CMFer9A0mtH/Kuramanime-MGFTK_BD-04-720p-Zensub.mp4?lud=1743502998&pid=12164&sid=62515&cce=1",
+      "480p": "https://villhaze.my.id/kdrive/WsGswwkDKGt/Kuramanime-MGFTK_BD-04-480p-Zensub.mp4?lud=1743502998&pid=12164&sid=62514&cce=1",
+      "360p": "https://villhaze.my.id/kdrive/eR3u83YQple/Kuramanime-MGFTK_BD-04-360p-Zensub.mp4?lud=1743502998&pid=12164&sid=62513&cce=1"
+    }
+  },
+  {
+    "title": "The Transfer Student",
+    "episodeNumber": 5,
+    "videoURL": {
+      "720p": "https://asuna.my.id/kdrive/X33l6JjF02b/Kuramanime-MGFTK_BD-05-720p-Zensub.mp4?lud=1743502999&pid=12165&sid=62520&cce=1",
+      "480p": "https://asuna.my.id/kdrive/rg2HgmWGaD5/Kuramanime-MGFTK_BD-05-480p-Zensub.mp4?lud=1743502998&pid=12165&sid=62519&cce=1",
+      "360p": "https://asuna.my.id/kdrive/9mtCCCpUudS/Kuramanime-MGFTK_BD-05-360p-Zensub.mp4?lud=1743502998&pid=12165&sid=62518&cce=1"
+    }
+  },
+  {
+    "title": "Magic Sword Tournament",
+    "episodeNumber": 6,
+    "videoURL": {
+      "720p": "https://yoru.my.id/kdrive/ykhxohXYXNl/Kuramanime-MGFTK_BD-06-720p-Zensub.mp4?lud=1743502999&pid=12166&sid=62525&cce=1",
+      "480p": "https://yoru.my.id/kdrive/UiOKpR3YrSq/Kuramanime-MGFTK_BD-06-480p-Zensub.mp4?lud=1743502999&pid=12166&sid=62524&cce=1",
+      "360p": "https://yoru.my.id/kdrive/lFlUSQXsbGK/Kuramanime-MGFTK_BD-06-360p-Zensub.mp4?lud=1743502999&pid=12166&sid=62523&cce=1"
+    }
+  },
+  {
+    "title": "Mother's Words",
+    "episodeNumber": 7,
+    "videoURL": {
+      "720p": "https://mutsumi.my.id/kdrive/VhoLh3Dn8rH/Kuramanime-MGFTK_BD-07-720p-Zensub.mp4?lud=1743502999&pid=12167&sid=62530&cce=1",
+      "480p": "https://mutsumi.my.id/kdrive/GH6x6GaLAWY/Kuramanime-MGFTK_BD-07-480p-Zensub.mp4?lud=1743502999&pid=12167&sid=62529&cce=1",
+      "360p": "https://mutsumi.my.id/kdrive/MOgeyCyoI1G/Kuramanime-MGFTK_BD-07-360p-Zensub.mp4?lud=1743502999&pid=12167&sid=62528&cce=1"
+    }
+  },
+  {
+    "title": "The Final Duel",
+    "episodeNumber": 8,
+    "videoURL": {
+      "720p": "https://miyuki.my.id/kdrive/efoJwN8ziN1/Kuramanime-MGFTK_BD-08-720p-Zensub.mp4?lud=1743502999&pid=12168&sid=62535&cce=1",
+      "480p": "https://miyuki.my.id/kdrive/f6xMoJUWxjz/Kuramanime-MGFTK_BD-08-480p-Zensub.mp4?lud=1743502999&pid=12168&sid=62534&cce=1",
+      "360p": "https://miyuki.my.id/kdrive/n5mphz0uNOA/Kuramanime-MGFTK_BD-08-360p-Zensub.mp4?lud=1743502999&pid=12168&sid=62533&cce=1"
+    }
+  },
+  {
+    "title": "The Mistery of The Hero Academy",
+    "episodeNumber": 9,
+    "videoURL": {
+      "720p": "https://mushoku.my.id/kdrive/UVAQU2Iz4v7/Kuramanime-MGFTK_BD-09-720p-Zensub.mp4?lud=1743503000&pid=12169&sid=62540&cce=1",
+      "480p": "https://mushoku.my.id/kdrive/AczVfmv8nnl/Kuramanime-MGFTK_BD-09-480p-Zensub.mp4?lud=1743502999&pid=12169&sid=62539&cce=1",
+      "360p": "https://mushoku.my.id/kdrive/QR5aUQ3rpqd/Kuramanime-MGFTK_BD-09-360p-Zensub.mp4?lud=1743502999&pid=12169&sid=62538&cce=1"
+    }
+  },
+  {
+    "title": "Inter-Academy Exams",
+    "episodeNumber": 10,
+    "videoURL": {
+      "720p": "https://asuna.my.id/kdrive/mpMYNK0odAL/Kuramanime-MGFTK_BD-10-720p-Zensub.mp4?lud=1743503000&pid=12170&sid=62545&cce=1",
+      "480p": "https://asuna.my.id/kdrive/qRleRbSDRDX/Kuramanime-MGFTK_BD-10-480p-Zensub.mp4?lud=1743503000&pid=12170&sid=62544&cce=1",
+      "360p": "https://asuna.my.id/kdrive/GxvnXHUyxvj/Kuramanime-MGFTK_BD-10-360p-Zensub.mp4?lud=1743503000&pid=12170&sid=62543&cce=1"
+    }
+  },
+  {
+    "title": "The Glow of Life",
+    "episodeNumber": 11,
+    "videoURL": {
+      "720p": "https://nobara.my.id/kdrive/7isWuH3wvTl/Kuramanime-MGFTK_BD-11-720p-Zensub.mp4?lud=1743503000&pid=12171&sid=62550&cce=1",
+      "480p": "https://nobara.my.id/kdrive/VJsIMqN5oWG/Kuramanime-MGFTK_BD-11-480p-Zensub.mp4?lud=1743503000&pid=12171&sid=62549&cce=1",
+      "360p": "https://nobara.my.id/kdrive/UcmNCPbvOLP/Kuramanime-MGFTK_BD-11-360p-Zensub.mp4?lud=1743503000&pid=12171&sid=62548&cce=1"
+    }
+  },
+  {
+    "title": "Taboo Magic",
+    "episodeNumber": 12,
+    "videoURL": {
+      "720p": "https://yae.my.id/kdrive/q9MNElIw6Y7/Kuramanime-MGFTK_BD-12-720p-Zensub.mp4?lud=1743503002&pid=12172&sid=62555&cce=1",
+      "480p": "https://yae.my.id/kdrive/UFdbF9Jznhj/Kuramanime-MGFTK_BD-12-480p-Zensub.mp4?lud=1743503002&pid=12172&sid=62554&cce=1",
+      "360p": "https://yae.my.id/kdrive/hP27ljpjeUm/Kuramanime-MGFTK_BD-12-360p-Zensub.mp4?lud=1743503002&pid=12172&sid=62553&cce=1"
+    }
+  },
+  {
+    "title": "Let The World Be Filled With Love",
+    "episodeNumber": 13,
+    "videoURL": {
+      "720p": "https://chinatsu.my.id/kdrive/qqzOA32fRlj/Kuramanime-MGFTK_BD-13_END-720p-Zensub.mp4?lud=1743503002&pid=12173&sid=62560&cce=1",
+      "480p": "https://chinatsu.my.id/kdrive/QGreYvMZ8j4/Kuramanime-MGFTK_BD-13_END-480p-Zensub.mp4?lud=1743503002&pid=12173&sid=62559&cce=1",
+      "360p": "https://chinatsu.my.id/kdrive/DKOfNplR1Ug/Kuramanime-MGFTK_BD-13_END-360p-Zensub.mp4?lud=1743503002&pid=12173&sid=62558&cce=1"
+    }
+  }
+]
+
+
+###
+// create all episode
+// anime one piece
+POST {{base}}episodeBatch/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "title": "Aku Luffy Orang Yang akan Jadi Raja Bajak Laut",
+    "episodeNumber": 1,
+    "videoURL": {
+      "720p": "https://desustream.info/dstream/moedesu/hd/v3/index.php?id=OFJYdGNoZmEwaG1MUkRtK2t6NHJXdz09",
+      "480p": "https://www.mp4upload.com/embed-695iym7rxctg.html",
+      "360p": "https://desudrive.com/stream/yuplod.php?id=F6i2rM12U1GM"
+    }
+  },
+  {
+    "title": "Masukkan Pendekar Hebat! Pemburu bajak laut Roronoa Zoro!",
+    "episodeNumber": 2,
+    "videoURL": {
+      "720p": "https://desustream.info/dstream/moedesu/hd/v3/index.php?id=K09EQkpsSHNpbjZTdDM4SEgyRERMdz09",
+      "480p": "https://www.mp4upload.com/embed-2qx7w3rbn0e4.html",
+      "360p": "https://desudrive.com/stream/yuplod.php?id=mvYUj4Q0RK64"
+    }
+  },
+  {
+    "title": "Morgan Melawan Luffy! Siapa Gadis Cantik Itu?",
+    "episodeNumber": 3,
+    "videoURL": {
+      "720p": "https://desustream.info/dstream/moedesu/hd/v3/index.php?id=S0s1RVV1dSsyVVc4cUJuRnlnYXd0dz09",
+      "480p": "https://www.mp4upload.com/embed-b55oif6aaip0.html",
+      "360p": "https://desudrive.com/stream/yuplod.php?id=rY181ST747lx"
+    }
+  },
+  {
+    "title": "Luffy Masa lalu! Masukkan Shanks Si Bajak Laut Rambut Merah!",
+    "episodeNumber": 4,
+    "videoURL": {
+      "720p": "https://desustream.info/dstream/moedesu/hd/v3/index.php?id=TkJ5S3ZKenZydnI1bFp0ZjJESGloZz09",
+      "480p": "https://www.mp4upload.com/embed-2s489q4ufwud.html",
+      "360p": "https://desudrive.com/stream/yuplod.php?id=4N2e3TjnX010"
+    }
+  },
+  {
+    "title": "Kekuatan Misterius! Kapten Buggy si Badut!",
+    "episodeNumber": 5,
+    "videoURL": {
+      "720p": "https://desustream.info/dstream/moedesu/hd/v3/index.php?id=cUl5bHk1M3JLdDg3Uk9GMXdXMUhVUT09",
+      "480p": "https://www.mp4upload.com/embed-xahtidv6cffvtxx.html",
+      "360p": "https://desudrive.com/stream/yuplod.php?id=61GP3k65Mptm"
+    }
+  },
+  {
+    "title": "Situasi Putus Asa! Beast Tamer Mohji vs Luffy!",
+    "episodeNumber": 6,
+    "videoURL": {
+      "720p": "https://desustream.info/dstream/moedesu/hd/v3/index.php?id=Vk50eFdZcmhKNFlLQU5USDdjRXlodz09",
+      "480p": "https://www.mp4upload.com/embed-4cqyf307dcrd.html",
+      "360p": "https://desudrive.com/stream/yuplod.php?id=gTdP5h5X0G0Q"
+    }
+  },
+  {
+    "title": "Pertarungan Hebat! Zoro vs Cabaji si Acrobat!",
+    "episodeNumber": 7,
+    "videoURL": {
+      "720p": "https://desustream.info/dstream/moedesu/hd/v3/index.php?id=cUtuQlQ5eFZOSk9neXJLRkxWZmRsdz09",
+      "480p": "https://www.mp4upload.com/embed-zcx68i4enc4u.html",
+      "360p": "https://desudrive.com/stream/yuplod.php?id=rRdwI747oiX5"
+    }
+  },
+  {
+    "title": "Siapa Pemenangnya? Luffy vs Buggy!",
+    "episodeNumber": 8,
+    "videoURL": {
+      "720p": "https://desustream.info/dstream/moedesu/hd/v3/index.php?id=YTJMZHoxdWJnTHl6RVZ0VkJVMmYwZz09",
+      "480p": "https://www.mp4upload.com/embed-u9r2coy3i0zx.html",
+      "360p": "https://desudrive.com/stream/yuplod.php?id=E5T2mJ11ARVK"
+    }
+  },
+  {
+    "title": "Pembohong Terhormat! Kapten Usopp!",
+    "episodeNumber": 9,
+    "videoURL": {
+      "720p": "https://desustream.info/dstream/moedesu/hd/v3/index.php?id=LzUzQXdMdHFqOXNZRmw5TTVrbko1dz09",
+      "480p": "https://www.mp4upload.com/embed-ocbc692h004y.html",
+      "360p": "https://desudrive.com/stream/yuplod.php?id=3b0JIq5m3YIp"
+    }
+  }
+]
+
+
+###
+// create all episode
+// anime overlord
+POST {{base}}episodeBatch/2
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "title": "Akhir Dan Awal",
+    "episodeNumber": 1,
+    "videoURL": {
+      "720p": "https://momo.my.id/kdrive/8ow8SRIcVZh/Kuramanime-OVLORD_BD-01-720p-Neo.mp4?lud=1743502420&pid=5333&sid=27377&cce=1",
+      "480p": "https://momo.my.id/kdrive/Mbm193QiH1S/Kuramanime-OVLORD_BD-01-480p-Neo.mp4?lud=1743502420&pid=5333&sid=27376&cce=1",
+      "360p": "https://momo.my.id/kdrive/ChrFR2u9ZDq/Kuramanime-OVLORD_BD-01-360p-Neo.mp4?lud=1743502420&pid=5333&sid=27375&cce=1"
+    }
+  },
+  {
+    "title": "Penjaga Lantai",
+    "episodeNumber": 2,
+    "videoURL": {
+      "720p": "https://mushoku.my.id/kdrive/v4ef1BDz4RI/Kuramanime-OVLORD_BD-02-720p-Neo.mp4?lud=1743502420&pid=5334&sid=27382&cce=1",
+      "480p": "https://mushoku.my.id/kdrive/dHxgAJ9I5QC/Kuramanime-OVLORD_BD-02-480p-Neo.mp4?lud=1743502420&pid=5334&sid=27381&cce=1",
+      "360p": "https://mushoku.my.id/kdrive/Pk29YiAI5tU/Kuramanime-OVLORD_BD-02-360p-Neo.mp4?lud=1743502420&pid=5334&sid=27380&cce=1"
+    }
+  },
+  {
+    "title": "Pertempuran Di Desa Re-Estize",
+    "episodeNumber": 3,
+    "videoURL": {
+      "720p": "https://kaede.my.id/kdrive/xYP1Q2PbunO/Kuramanime-OVLORD_BD-03-720p-Neo.mp4?lud=1743502420&pid=5335&sid=27387&cce=1",
+      "480p": "https://kaede.my.id/kdrive/z8zcE261ozA/Kuramanime-OVLORD_BD-03-480p-Neo.mp4?lud=1743502420&pid=5335&sid=27386&cce=1",
+      "360p": "https://kaede.my.id/kdrive/F7h9oxWzL3w/Kuramanime-OVLORD_BD-03-360p-Neo.mp4?lud=1743502420&pid=5335&sid=27385&cce=1"
+    }
+  },
+  {
+    "title": "Peraturan  Kematian",
+    "episodeNumber": 4,
+    "videoURL": {
+      "720p": "https://kaede.my.id/kdrive/PwpOyuXegcQ/Kuramanime-OVLORD_BD-04-720p-Neo.mp4?lud=1743502420&pid=5336&sid=27392&cce=1",
+      "480p": "https://kaede.my.id/kdrive/4GjvX6s2BhP/Kuramanime-OVLORD_BD-04-480p-Neo.mp4?lud=1743502420&pid=5336&sid=27391&cce=1",
+      "360p": "https://kaede.my.id/kdrive/xdpzrH4FiNv/Kuramanime-OVLORD_BD-04-360p-Neo.mp4?lud=1743502420&pid=5336&sid=27390&cce=1"
+    }
+  },
+  {
+    "title": "Dua Petualang",
+    "episodeNumber": 5,
+    "videoURL": {
+      "720p": "https://momo.my.id/kdrive/9w6Bzuxvay9/Kuramanime-OVLORD_BD-05-720p-Neo.mp4?lud=1743502420&pid=5337&sid=27397&cce=1",
+      "480p": "https://momo.my.id/kdrive/UpNNxhruKPP/Kuramanime-OVLORD_BD-05-480p-Neo.mp4?lud=1743502420&pid=5337&sid=27396&cce=1",
+      "360p": "https://momo.my.id/kdrive/tsvZdh7d4tp/Kuramanime-OVLORD_BD-05-360p-Neo.mp4?lud=1743502420&pid=5337&sid=27395&cce=1"
+    }
+  },
+  {
+    "title": "Perjalanan",
+    "episodeNumber": 6,
+    "videoURL": {
+      "720p": "https://tinasha.my.id/kdrive/W6bpDEbMKA9/Kuramanime-OVLORD_BD-06-720p-Neo.mp4?lud=1743502420&pid=5338&sid=27402&cce=1",
+      "480p": "https://tinasha.my.id/kdrive/VMFwaqn7TLF/Kuramanime-OVLORD_BD-06-480p-Neo.mp4?lud=1743502420&pid=5338&sid=27401&cce=1",
+      "360p": "https://tinasha.my.id/kdrive/h8I82QTmOSF/Kuramanime-OVLORD_BD-06-360p-Neo.mp4?lud=1743502420&pid=5338&sid=27400&cce=1"
+    }
+  },
+  {
+    "title": "Raja Wise Of the Forest",
+    "episodeNumber": 7,
+    "videoURL": {
+      "720p": "https://makima.my.id/kdrive/lRVtzYzWlon/Kuramanime-OVLORD_BD-07-720p-Neo.mp4?lud=1743502420&pid=5339&sid=27407&cce=1",
+      "480p": "https://makima.my.id/kdrive/izFY832GHz8/Kuramanime-OVLORD_BD-07-480p-Neo.mp4?lud=1743502420&pid=5339&sid=27406&cce=1",
+      "360p": "https://makima.my.id/kdrive/YYgAmGxibhU/Kuramanime-OVLORD_BD-07-360p-Neo.mp4?lud=1743502420&pid=5339&sid=27405&cce=1"
+    }
+  },
+  {
+    "title": "Pedang Kembar Dari Menyayat Kematian",
+    "episodeNumber": 8,
+    "videoURL": {
+      "720p": "https://waguri.my.id/kdrive/B26xsDpEp4x/Kuramanime-OVLORD_BD-08-720p-Neo.mp4?lud=1743502420&pid=5340&sid=27412&cce=1",
+      "480p": "https://waguri.my.id/kdrive/Fs1G1wfDZmy/Kuramanime-OVLORD_BD-08-480p-Neo.mp4?lud=1743502420&pid=5340&sid=27411&cce=1",
+      "360p": "https://waguri.my.id/kdrive/BJDu0KnztlA/Kuramanime-OVLORD_BD-08-360p-Neo.mp4?lud=1743502420&pid=5340&sid=27410&cce=1"
+    }
+  },
+  {
+    "title": "Prajurit Kegelapan",
+    "episodeNumber": 9,
+    "videoURL": {
+      "720p": "https://chinatsu.my.id/kdrive/HHU18NE9cyp/Kuramanime-OVLORD_BD-09-720p-Neo.mp4?lud=1743502420&pid=5341&sid=27417&cce=1",
+      "480p": "https://chinatsu.my.id/kdrive/wZ7RuU8RLKX/Kuramanime-OVLORD_BD-09-480p-Neo.mp4?lud=1743502420&pid=5341&sid=27416&cce=1",
+      "360p": "https://chinatsu.my.id/kdrive/kAyFUmdwyOG/Kuramanime-OVLORD_BD-09-360p-Neo.mp4?lud=1743502420&pid=5341&sid=27415&cce=1"
+    }
+  },
+  {
+    "title": "Vampir Shaltear Bloodfallen",
+    "episodeNumber": 10,
+    "videoURL": {
+      "720p": "https://shinoaki.my.id/kdrive/T9cRtO8VftX/Kuramanime-OVLORD_BD-10-720p-Neo.mp4?lud=1743502421&pid=5342&sid=27422&cce=1",
+      "480p": "https://shinoaki.my.id/kdrive/qZCm9bOFMYW/Kuramanime-OVLORD_BD-10-480p-Neo.mp4?lud=1743502421&pid=5342&sid=27421&cce=1",
+      "360p": "https://shinoaki.my.id/kdrive/9xWEXv3KUTk/Kuramanime-OVLORD_BD-10-360p-Neo.mp4?lud=1743502421&pid=5342&sid=27420&cce=1"
+    }
+  },
+  {
+    "title": "Kebingungan Dan Pemahaman",
+    "episodeNumber": 11,
+    "videoURL": {
+      "720p": "https://kanae.my.id/kdrive/gvJj7hYxzhG/Kuramanime-OVLORD_BD-11-720p-Neo.mp4?lud=1743502421&pid=5343&sid=27427&cce=1",
+      "480p": "https://kanae.my.id/kdrive/XNN8Aj3mfsv/Kuramanime-OVLORD_BD-11-480p-Neo.mp4?lud=1743502421&pid=5343&sid=27426&cce=1",
+      "360p": "https://kanae.my.id/kdrive/V9aCME4ehyt/Kuramanime-OVLORD_BD-11-360p-Neo.mp4?lud=1743502421&pid=5343&sid=27425&cce=1"
+    }
+  },
+  {
+    "title": "Valkyrie Berdarah",
+    "episodeNumber": 12,
+    "videoURL": {
+      "720p": "https://kitasan.my.id/kdrive/EgdBRNLvJIE/Kuramanime-OVLORD_BD-12-720p-Neo.mp4?lud=1743502421&pid=5344&sid=27432&cce=1",
+      "480p": "https://kitasan.my.id/kdrive/kOzy0aEq84B/Kuramanime-OVLORD_BD-12-480p-Neo.mp4?lud=1743502421&pid=5344&sid=27431&cce=1",
+      "360p": "https://kitasan.my.id/kdrive/RPbWpudVvYC/Kuramanime-OVLORD_BD-12-360p-Neo.mp4?lud=1743502421&pid=5344&sid=27430&cce=1"
+    }
+  },
+  {
+    "title": "Player vs non-Player Karakter",
+    "episodeNumber": 13,
+    "videoURL": {
+      "720p": "https://leshea.my.id/kdrive/eEKvXXqI8eY/Kuramanime-OVLORD_BD-13_END-720p-Neo.mp4?lud=1743502421&pid=5345&sid=27437&cce=1",
+      "480p": "https://leshea.my.id/kdrive/VVrP3lUVJkc/Kuramanime-OVLORD_BD-13_END-480p-Neo.mp4?lud=1743502421&pid=5345&sid=27436&cce=1",
+      "360p": "https://leshea.my.id/kdrive/WXBnnEHjRte/Kuramanime-OVLORD_BD-13_END-360p-Neo.mp4?lud=1743502421&pid=5345&sid=27435&cce=1"
+    }
+  }
+]
+
+
+###
+//  create episode
+POST {{base}}episode/85
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Puncak Kekuatan Luffy - Tercapai! Gear Fifth",
+  "episodeNumber": 1071,
+  "videoURL": {
+    "720p": "https://megumin.my.id/kdrive/2uzzDThUjGI/Kuramanime-OP-1071-720p-Oploverz.mp4?lud=1743503391&pid=16069&sid=82622&cce=1",
+    "480p": "https://megumin.my.id/kdrive/HqoLP4LRyVO/Kuramanime-OP-1071-480p-Oploverz.mp4?lud=1743503391&pid=16069&sid=82621&cce=1",
+    "360p": "https://megumin.my.id/kdrive/wkctIy2NVmo/Kuramanime-OP-1071-360p-Oploverz.mp4?lud=1743503391&pid=16069&sid=82620&cce=1"
+  }
+}
+
+
+###
+// get all episode by animeid
+GET  {{base}}episode/1
+
+
+###
+// create schedule by anime
+POST {{base}}scheduleAll
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+[
+  {
+    "hari": "Senin",
+    "jam": "00:20 WIB",
+    "animeID": 6
+  },
+  {
+    "hari": "Senin",
+    "jam": "04:39 WIB",
+    "animeID": 7
+  },
+  {
+    "hari": "Senin",
+    "jam": "10:37 WIB",
+    "animeID": 8
+  },
+  {
+    "hari": "Senin",
+    "jam": "22:42 WIB",
+    "animeID": 9
+  },
+  {
+    "title": "Isekai Quartet 3",
+    "hari": "Senin",
+    "jam": "22:55 WIB",
+    "animeID": 10
+  },
+  {
+    "hari": "Senin",
+    "jam": "22:57 WIB",
+    "animeID": 11
+  },
+  {
+    "hari": "Senin",
+    "jam": "23:02 WIB",
+    "animeID": 12
+  },
+  {
+    "hari": "Senin",
+    "jam": "23:21 WIB",
+    "animeID": 13
+  }
+]
+
+
+###
+// get all schedule anime
+GET {{base}}schedule
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+
+###
+// Delete all Episode anime By Id
+DELETE  {{base}}EpisodeAll/85
+Content-Type: application/json
+Authorization: Bearer {{token}}
