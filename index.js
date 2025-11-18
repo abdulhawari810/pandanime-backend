@@ -10,25 +10,34 @@ import path from "path";
 
 dotenv.config();
 
-console.log("MYSQL CONFIG:", {
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  name: process.env.DB_NAME,
-});
+const allowedOrigins = [
+  "https://pandanime-frontend.vercel.app",
+  "http://localhost:5173"
+];
+
+
 
 const app = express();
 
 // (async () => {
 //   db.sync();
 // })();
-app.use(cookieParser());
+
 app.use(
   cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, origin);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
-    origin: "*",
   })
 );
+
+app.use(cookieParser());
+
 
 app.use(
   session({
